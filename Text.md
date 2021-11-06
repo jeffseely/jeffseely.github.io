@@ -68,7 +68,10 @@ This text is a work in progress and I'd like to acknowledge students and former 
 * Alex Wyatt, for contributions on wifi and client/server communication in Ch. 7
 * Ryan Kussman, for writing the Appendix 2 section on Method Draw
 
+------
+
 <!----><a name="1"></a>
+
 # 1 - What is JavaScript?
 
 > *Any sufficiently advanced technology is indistinguishable from magic.*
@@ -328,9 +331,9 @@ produces the number 4, which is nice because that is probably what you intended 
 
 produces the string "51", which may or may not be what you wanted. This feature of JavaScript cuts both ways. Sometimes it helps you, but just as often it produces results that you didn't expect or intend and it can make it difficult to find errors in your program.  While you can make your code more compact sometimes by taking advantage of type coercion, your code will be more readable if you make use of the `Number()` and `String()` functions to indicate conversion between types.
 
+------
+
 <!----><a name="2"></a>
-
-
 
 # 2 - Control Flow
 
@@ -1172,6 +1175,7 @@ function report() {
 setInterval(report, 500);
 ```
 <!----><a name="3.5"></a>
+
 ## 3.5 Motors & Robots
 -------------------------------
 
