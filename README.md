@@ -13,7 +13,7 @@ Table of Contents
 
 1 What is JavaScript?
 ---
-- [1.1 What is a Computer Program?](/BfGh-JrBT0u6NVrhwUVAzg#1---What-is-JavaScript)
+- [1.1 What is a Computer Program?](/Text.md#1---What-is-JavaScript)
 - [1.2 Writing a Computer Program](/BfGh-JrBT0u6NVrhwUVAzg#12-Writing-a-Computer-Program)
 - [1.3 Variables](/BfGh-JrBT0u6NVrhwUVAzg#13-Variables)
 - [1.4 Input & Output](/BfGh-JrBT0u6NVrhwUVAzg#14-Input-amp-Output-IO)
