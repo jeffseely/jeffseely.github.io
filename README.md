@@ -17,7 +17,7 @@ Table of Contents
 - [1.2 Writing a Computer Program](/Text.md#12-Writing-a-Computer-Program)
 - [1.3 Variables](/Text.md#13-Variables)
 - [1.4 Input & Output](/Text.md#14-Input-amp-Output-IO)
-- [1.5 Types of Values & Operators](./Text.md#abcd)
+- [1.5 Types of Values & Operators](./Text.md#1.5)
 
 2 Control Flow
 ---
