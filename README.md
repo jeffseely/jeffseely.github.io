@@ -14,10 +14,10 @@ Table of Contents
 1 What is JavaScript?
 ---
 - [1.1 What is a Computer Program?](/Text.md#1---What-is-JavaScript)
-- [1.2 Writing a Computer Program](/BfGh-JrBT0u6NVrhwUVAzg#12-Writing-a-Computer-Program)
-- [1.3 Variables](/BfGh-JrBT0u6NVrhwUVAzg#13-Variables)
-- [1.4 Input & Output](/BfGh-JrBT0u6NVrhwUVAzg#14-Input-amp-Output-IO)
-- [1.5 Types of Values & Operators](/BfGh-JrBT0u6NVrhwUVAzg#15-Types-of-Values-amp-Operators)
+- [1.2 Writing a Computer Program](/Text.md#12-Writing-a-Computer-Program)
+- [1.3 Variables](/Text.md#13-Variables)
+- [1.4 Input & Output](/Text.md#14-Input-amp-Output-IO)
+- [1.5 Types of Values & Operators](/Text.md#15-Types-of-Values-amp-Operators)
 
 2 Control Flow
 ---
