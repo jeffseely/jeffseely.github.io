@@ -19,15 +19,15 @@ Table of Contents
 
 2 Control Flow
 ---
-- [2.1 The IF statement](/dQjJE8Z0T4OmXBc3xWaRNg#2---Control-Flow)
-- [2.2 The WHILE statement](/dQjJE8Z0T4OmXBc3xWaRNg#22-The-WHILE-statement)
-- [2.3 The FOR loop](/dQjJE8Z0T4OmXBc3xWaRNg#23-The-FOR-loop)
-- [2.4 The SWITCH/CASE statement](/dQjJE8Z0T4OmXBc3xWaRNg#24-The-SWITCHCASE-statement)
-- [2.5 Commenting Revisited](/dQjJE8Z0T4OmXBc3xWaRNg#25-Commenting-Revisited)
-- [2.6 Nesting](/dQjJE8Z0T4OmXBc3xWaRNg#26-Nesting)
-- [2.7 Simple Functions](/dQjJE8Z0T4OmXBc3xWaRNg#27-Simple-Functions)
-- [2.8 Scope & Global Variables](/dQjJE8Z0T4OmXBc3xWaRNg#28-Scope-amp-Global-Variables)
-- [2.9 Methods](/dQjJE8Z0T4OmXBc3xWaRNg#29-Methods)
+- [2.1 The IF statement](/Text.md#2)
+- [2.2 The WHILE statement](/Text.md#2.2)
+- [2.3 The FOR loop](/Text.md#2.3)
+- [2.4 The SWITCH/CASE statement](/Text.md#2.4)
+- [2.5 Commenting Revisited](/Text.md#2.5)
+- [2.6 Nesting](/Text.md#2.6)
+- [2.7 Simple Functions](/Text.md#2.7)
+- [2.8 Scope & Global Variables](/Text.md#2.8)
+- [2.9 Methods](/Text.md#2.9)
 
 3 JavaScript & Micro-controllers
 ---

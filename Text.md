@@ -257,6 +257,7 @@ produces the number 4, which is nice because that is probably what you intended 
 
 produces the string "51", which may or may not be what you wanted. This feature of JavaScript cuts both ways. Sometimes it helps you, but just as often it produces results that you didn't expect or intend and it can make it difficult to find errors in your program.  While you can make your code more compact sometimes by taking advantage of type coercion, your code will be more readable if you make use of the `Number()` and `String()` functions to indicate conversion between types.
 
+<!----><a name="2"></a>
 # 2 - Control Flow
 
 ###### tags: `apcsp txt` `cs`
