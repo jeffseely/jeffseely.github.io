@@ -1,22 +1,20 @@
 # jeffseely.github.io
-text
 
-###### tags: `apcsp txt` `cs`
 AP-CSP Intro to JavaScript
 ===
 Table of Contents
 ---
 - [Front Matter](/wV0cyxtyRUWkR0GzyE_yCw#Front-Matter)
 
-[//]: # (put a / in front of address to avoid link symbol in output)
-[//]: # (URL for replit assets example: https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/CS1cover.jpg)
+[//]: # "put a / in front of address to avoid link symbol in output"
+[//]: # "URL for replit assets example: https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/CS1cover.jpg"
 
 1 What is JavaScript?
 ---
-- [1.1 What is a Computer Program?](/Text.md#1---What-is-JavaScript)
-- [1.2 Writing a Computer Program](/Text.md#12-Writing-a-Computer-Program)
-- [1.3 Variables](/Text.md#13-Variables)
-- [1.4 Input & Output](/Text.md#14-Input-amp-Output-IO)
+- [1.1 What is a Computer Program?](/Text.md)
+- [1.2 Writing a Computer Program](/Text.md#1.2)
+- [1.3 Variables](/Text.md#1.3)
+- [1.4 Input & Output](/Text.md#1.4)
 - [1.5 Types of Values & Operators](./Text.md#1.5)
 
 2 Control Flow
