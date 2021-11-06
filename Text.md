@@ -1,7 +1,5 @@
 # 1 - What is JavaScript?
 
-###### tags: `apcsp txt` `cs`
-
 > *Any sufficiently advanced technology is indistinguishable from magic.*
 >
 > *--Arthur C. Clarke*
@@ -63,6 +61,7 @@ Leading zeros have been included to emphasize place value.  Decimal is how we co
 
 Take a look at [Crash Course Computer Science episode 4](https://www.youtube.com/playlist?list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo) to better understand binary math.
 
+<!----><a name="1.2"></a>
 ## 1.2 Writing a Computer Program
 
 > **TARGET**: Be able to use the Repl.it IDE to write and run simple JavaScript programs.
@@ -103,6 +102,7 @@ Finally, since computer programs are read not only by computers but by people, w
 
 Only line 2 of the program will show up in the console, but not the comment at the end of line 2.  Anything after 2 forward slashes is ignored.
 
+<!----><a name="1.3"></a>
 ## 1.3 Variables
 
 > **Target**: Be able to create proper variables, request user input and provide output to the user. 
@@ -137,7 +137,8 @@ With multiple line programs like this, we can make programs that do a bit more f
 Finally you need to know that `let` is a relatively new addition to JavaScript.  Originally the keyword `var` was used to declare variables.  But `var` had some confusing behaviors and it is better for you to use `let`. Don't be surprised however if you read other people's JavaScript on the internet or in books and they still use `var`.  It is very common.
 
 For additional background information take a look at [Crash Course Computer Science episode 12](https://www.youtube.com/playlist?list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo)
-​    
+
+<!----><a name="1.4"></a>
 ## 1.4 Input & Output: I/O
 
 We've made some progress, but there are still some important pieces needed to make useful programs. We can work with strings and do some math and **output** results to the console, but what if we wanted our program to ask a user for something, process that information somehow, and then give the new result back to the user. We can already do output, but we need a way of getting information from the outside world into our program. We need **input**. Input and output are often abbreviated I/O.
