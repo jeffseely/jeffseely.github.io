@@ -187,7 +187,8 @@ Repl.it provide some nice editing and formatting features.  If you right click o
 
 Finally, please understand that while we are using the Repl.it environment to learn programming, if we were to use the same code on a webpage, the web browser would also produce prompt and alert boxes for input and output.  The code we learn in Repl.it will be useful in more realistic situations like web pages.
 
-# Types of Values & Operators
+<!----><a name="abcd"></a>
+## Types of Values & Operators
 
 > **Target**: Be able to describe and use different value types.
 
