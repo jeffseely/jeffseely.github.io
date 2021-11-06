@@ -1,3 +1,74 @@
+# Front Matter
+
+## Introduction to JavaScript v.4.0
+
+Jeff Seely -- Lynden High School, Lynden WA 98264
+
+Edition 4.0 Revised Summer 2021
+
+This text is original by the author or dependent on sources specifically cited in the text. Illustrations are original by the author, are public domain, Creative Commons, or are cited in the text. Citation does not imply use with permission.
+
+This text is not intended for use outside of Lynden High School. It may not be legally distributed, reproduced or sold without express permission of the author. No organization or individual paid for or profited from its production. The Lynden School District is not responsible for its content.
+
+Any hardware projects described in this text must be done under competent supervision.
+
+At present, this text is undergoing nearly constant revision. Do not assume this version is current. Contact the author directly regarding errors at seelyj@lynden.wednet.edu
+
+## Additional Resources 
+
+The web is full of potentially useful things, but I wanted to highlight some free resources that I think are particularly good.
+
+[W3Schools](http://www.w3schools.com/) and [Mozilla Developer Network](https://developer.mozilla.org/en-US/) are the basic reference sites for JavaScript and HTML.
+
+[Eloquent JavaScript: A Modern Introduction to Programming](http://eloquentjavascript.net/) by Marijn Haverbeke - This book is free in digital form and is one of the main sources I used when writing this textbook.
+
+[JavaScript: Novice to Ninja](http://ix.cs.uoregon.edu/~michaelh/cl-mh/CIT/JavaScript_Novice_to_Ninja.pdf) by Darren Jones - A really well organized presentation for beginning programmers.
+
+[Harvard CS50](https://cs50.harvard.edu/) - This is not a download and it's not just about JavaScript, but the lectures & videos contain great info.
+
+[JSBooks](http://jsbooks.revolunet.com/) - has a library of free JavaScript texts, some downloadable.
+
+[JavaScript Tutorial](http://javascript.info/) by Ilya Kantor has a ton of good examples and demonstrates good coding style.
+
+[DOM Enlightenment](http://domenlightenment.com/) - Cody Lindley for additional information on the document object model.
+
+[The Pocket Guide to Writing SVG](http://svgpocketguide.com/book/#intro) by Joni Trythall is excellent.
+
+Jakob Jenkov has some very good [SVG tutorials](http://tutorials.jenkov.com/svg/index.html) including videos.
+
+Espruino JavaScript and Pico documentation on the [Espruino website](http://www.espruino.com/).
+
+Joshua Davies has a series of helpful posts on the Chrome developer tools and debugging [here](http://commandlinefanatic.com/cgi-bin/showarticle.cgi?article=art033).
+
+[Repl.it](https://repl.it/): is an online programming environment we use for beginning programming and for submitting assignments. It is not browser specific and there is nothing to install.
+
+[Espruino Web IDE](https://chrome.google.com/webstore/detail/espruino-web-ide/bleoifhkdalbjfbobjackfdifdneehpo) (although it will not work without an attached microcontroller and also requires the [Chrome browser](https://www.google.com/chrome/)).
+
+[Fritzing](http://fritzing.org/home/) - for creating new breadboard layouts.  The software is used frequently in this text.
+
+[Chrome](https://chrome.google.com/): has lots of good developer tools.
+
+If you really get into microcontrollers and want to make your own hardware, my favorite sources of material and information other than eBay are [Adafruit](http://Adafruit/), [Sparkfun](https://www.sparkfun.com/) and [Tindie](https://www.tindie.com/).
+
+## Sources & Contributors 
+
+While I have culled information and ideas from a lot of places, I want to acknowledge those on which I have been most dependent. Any errors in this book are mine, not theirs.
+
+Gordon Williams creator of Espruino and Pico, at espruino.com. Many of the Pico projects are originally from his site or are adaptations of those projects.
+
+Marijn Haverbeke in Eloquent JavaScript: A Modern Introduction to Programming.
+
+Lauren McCarthy, et al in Make: Getting Started with p5.js: Making Interactive Graphics in JavaScript and Processing. A number of the examples in Ch. 4.5 are based on ones from this book.
+
+This text is a work in progress and I'd like to acknowledge students and former students who have contributed significant additions and corrections:
+
+* Ben Hamming, for reviewing and contributing changes to the text.
+* Caleb Erickson, for contributions of clarification to Ch. 1
+* Alex Peterson, for contributions on robotics in Ch. 3
+* Alex Wyatt, for contributions on wifi and client/server communication in Ch. 7
+* Ryan Kussman, for writing the Appendix 2 section on Method Draw
+
+<!----><a name="1"></a>
 # 1 - What is JavaScript?
 
 > *Any sufficiently advanced technology is indistinguishable from magic.*
@@ -258,9 +329,10 @@ produces the number 4, which is nice because that is probably what you intended 
 produces the string "51", which may or may not be what you wanted. This feature of JavaScript cuts both ways. Sometimes it helps you, but just as often it produces results that you didn't expect or intend and it can make it difficult to find errors in your program.  While you can make your code more compact sometimes by taking advantage of type coercion, your code will be more readable if you make use of the `Number()` and `String()` functions to indicate conversion between types.
 
 <!----><a name="2"></a>
-# 2 - Control Flow
 
-###### tags: `apcsp txt` `cs`
+
+
+# 2 - Control Flow
 
 We read from the top of the page to the bottom, we do math problems from top to bottom, but computer programs are not so simple.  Sometimes sections repeat or one instruction jumps to another, or some sections may be skipped entirely. When we read computer programs, we need to look for statements that control what is going on and see how the program flows from one controlling statement to another, that is, we follow the *flow of control*, or **control flow**.  In this section we study those controlling statements.
 
@@ -644,3 +716,641 @@ console.log(Math.E);
 Try to keep in mind that JavaScript is *case sensitive*, that is `Math.PI` is not the same as `math.pi`. The first way works, the second way produces an error. As we will see in the next chapter, other languages, like HTML, are not case sensitive. These differences just mean you have to pay attention.
 
 One of the topics covered in the programs, but not the text is encryption. For additional background on this important topic, take a look at [Crash Course Computer Science episode 33 and 31](https://www.youtube.com/playlist?list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo)
+
+<!----><a name="3"></a>
+# 3 - JavaScript & Micro-controllers
+
+## 3.1 Controlling Micro-controllers
+
+### *• Microcontrollers*
+
+Computer technology is ubiquitous in our times and we can find it in places where there is no screen or keyboard. Every currently produced automobile has several computer managing the engine and other equipment, microwave ovens and printers have computers inside, grocery stores have automated checkout lines managed by computers, home automation systems are growing in popularity, robots and drones are all the rage and they all, of course, are managed by computers. Most of these computers are small and simple with no facility for a screen, keyboard, trackpad or mouse, no USB port or speakers, none of the usual things we associate with computers. They may have a very limited UI (**user interface**) or none at all. They are designed to run one program over and over again. They are loaded with that program when they are installed and that's all they do. In most cases what we are talking about is not a general purpose computer but a microcontroller. Microcontrollers typically consist of a single chip or *IC* ([Integrated Circuit](https://learn.sparkfun.com/tutorials/integrated-circuits)) containing a processor (computer), memory and some form of I/O.
+
+> *Computer science is no more about computers than astronomy is about telescopes.*
+>
+> *--Edsger Dijkstra*
+
+Microcontrollers became commercially available in the 1970's and as their cost dropped their power increased. They are used in nearly all electronic devices. Hobbyists have long built things with microcontrollers but in the last few years programming microcontrollers has become much more accessible. These easily programmable and inexpensive microcontrollers are now used extensively to quickly prototype new products prior to their mass production or to provide solutions to one-time problems.
+
+### *• Espruino Pico*
+
+The Espruino Pico is a microcontroller that can be programmed using JavaScript. The specific processor used is an ARM Cortex M4 which the manufacturer says is designed for "motor control, automotive, power management, embedded audio and industrial automation" tasks. In addition, it has very low power usage allowing it to run on a single battery for months.
+
+<img src="https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/Pico.jpg" width="100%" hover="Pico closeup" alt="Pico closeup">
+
+The processor itself is about 1/4 inch square (the white chip numbered 0343 in the photo), and as part of a Pico, it comes with a clock, a button, a couple of lights, a USB interface, a set of pins and a few other odds and ends, but the Pico board ends up less than 1.5 inches long and about half an inch wide - a rather small computer, but plenty for us to work with.
+
+<img src="https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/FritzingPicowBB2.png" width="100%" hover="Pico on Breadboard" alt="Pico on Breadboard">
+
+While the Espruino JavaScript interpreter does not recognize all JavaScript commands, it handles all we will need, plus it adds a bunch of functions for us that allow us to program the Pico to do all sorts of things. A complete list of the JavaScript functions available on the Pico can be found in the reference section of the Espruino website [here](http://www.espruino.com/Reference).
+
+You will be assigned a Pico on a breadboard along with a USB cable. Connect your Pico to the USB cable and then to your laptop as demonstrated by your teacher. You should see a small red light on the Pico flash once when the connection is made. The red flash indicates that the Pico is getting power from the laptop via the USB cable.
+
+Now start up the Espruino Web IDE (WIDE) software according to your teacher's instructions. 
+
+![Espruino WebIDE](https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/EspWebIDE.png "Espruino WebIDE")
+
+Click the orange Connect button ![ Connect icon](https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/connecticon.png "Connect icon") in the upper left corner and choose a COM port. You are now ready to send JavaScript programs to your Pico via the Web IDE (WIDE). For the most part we will type programs in the editor on the right side (white) and then use the send button ![ Send icon](https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/sendicon.png "Send icon") to send them to the Pico for execution. Results will appear in the console on the left (black). You can also type instructions in the console at the > prompt, one at a time. When you hit return at the end of the instruction line, the instruction will go directly to the Pico and wait for a response which will appear below your instruction after an equals sign (=). You can clear the left side by clicking the delete button with the X in it.
+
+The first Pico-specific function we will look at is `digitalWrite()`. This function is not part of JavaScript proper - you won't find it at [w3schools](https://www.w3schools.com/jS/default.asp). Rather it is a function written by the developer of the Pico that gives us control of the chip via JavaScript.
+
+![Pico pinout diagram -- espruino.com](https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/Espruino_Pico_pinout.png "Pico pinout diagram")
+
+The function has 2 parameters and its syntax is `digitalWrite(pin,value)`. The Pico has 29 pins that we could connect wires to, along with another 14 pins that are already designated for a given function, like the USB connector, the clock and a couple of [LED's](https://learn.sparkfun.com/tutorials/diodes) (*light emitting diodes*). In the `digitalWrite()` function, we specify the pin by it's alphanumeric (A5, B3, etc.) or its function (LED1, LED2, etc.). For this example we will use LED2. The value can be numeric (1 or 0), or boolean (true or false), or string ("on" or "off"). Type `digitalWrite(LED2,1)` in the console and see what happens. Remember that JavaScript is case sensitive, so if you forget to capitalize the W or anything else, it won't work. Don't worry about the Pico returning *undefined*, it's just because the `digitalWrite()` function doesn't return any value. Can you think of a way to turn off the green LED? Now play with LED1.
+
+Here is an example from the Espruino website using a function called `setInterval()`. Paste the code below into the WIDE editor and send it to the Pico.
+
+```javascript
+let state = true;
+function toggle() {
+	state = !state;
+	digitalWrite(LED1,state);
+}
+let blinker = setInterval(toggle,500);
+```
+
+You can see on line 6 that the `setInterval()` function calls the toggle function every 500 milliseconds (ms). The `setInterval()` function is the most common way to control events over time. To stop the blinking, type `clearInterval(blinker)` in the console.
+
+This is a straightforward program except for a couple of things: first note the nifty use of the boolean variable `state`. What does `state = !state;` do? We could have accomplished the same thing with an `if else` statement.
+
+Modify the code to speed up the rate of blinking. At what interval can you no longer perceive the light going on and off? Do you suppose there are microcontrollers in police light bars?
+
+Before moving on to more sophisticated work with the Pico, take some time to explore some features of the the WIDE. Go to the Settings menu (gear in upper right) in the About tab. Some of the Editor Key Shortcuts can come in handy. In the General tab you can change the font size and interface size.  Finally you should try to Save and Open a file using the 2 icons in the gray strip between the console and the editor. Your file extension should be .js as in `myFile.js`. 
+
+Complete **P>3.1C**.
+
+<!----><a name="3.2"></a>
+## 3.2 Programmable Circuits
+
+> **Target:** Be able to build basic circuits with batteries and switches and use circuits and switches to trigger programmed events in a microcontroller. Be able to output program data to an LCD. 
+
+### *• Breadboard*
+
+<img src="https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/FBB270Connections.png" width="100%" alt="Breadboard connections" hover="Breadboard connections">
+
+To make lights turn on, or speakers to sound, or electric motors turn, you need a flow of electricity from a source, through your device to power it, then back to where it started. This pathway is typically along a metallic surface or wire since metal is a good conductor of electricity. This pathway is called a circuit. Your white breadboard allows us to make connections and circuits without soldering or crimping. When you put a wire into a hole on the breadboard, it makes a connection with any other hole on the same numbered row. In the diagram above, the connected rows have a colored line connecting them. Holes A1 through E1 are all connected, but they are not connected to A2 through E2, nor are they connected to F1 through J1. The positive (+) row running horizontally at the top are all connected, as are the holes in the negative (-) row at the bottom.
+
+### *• Electric Current and Circuits*
+
+Our source of electrical current will either be the USB cable attached to a computer or a [battery](https://learn.sparkfun.com/tutorials/battery-technologies). Both will provide about 5 volts. Think of the wires and metal connections in the circuit like pipes, the current like the flow of water in the pipes and voltage like water pressure.
+
+In the illustration below, the red lead is positive (+) and should always go to the top (+) positive row of the breadboard. The black lead is negative and should go to the (-) negative bottom row. While technically the direction of the flow of electrons is from negative to positive, it is traditional to talk about the flow going from positive to negative. We will do so in this book.
+
+<img src="https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/FBB270LED.png" width="100%" alt="LED Circuit" hover="LED Circuit">
+
+The cylinder with bands is a **resistor** and it [reduces the current and voltage](https://learn.sparkfun.com/tutorials/resistors) of electricity, like a constriction in a pipe would reduce the flow and pressure of water. Without the resistor, the LED would burn up. This is a 200Ω resistor (Ω is the symbol for *Ohm*, the unit of resistance). The higher the ohms, the smaller the flow of electricity. Every electrical device has an expected amount of current. Too much and we burn it up, too little and it won't run. The mathematics needed to calculate the size of resistor needed is outside the scope of this course, but there's a nice tutorial [here](https://learn.sparkfun.com/tutorials/voltage-current-resistance-and-ohms-law) if you are interested.
+
+The LED has a long and short wire. The long wire connects to the positive (+) red side and the shorter wire connects to the negative (-) black side. One of the properties of a diode is that it only allows the electrical flow in one direction, so if you have it backwards, it will block the current flow and the light will not turn on.
+
+With the power pack in the OFF position, set up the circuit according to the illustration. This circuit has no connection to the Pico, but we will leave the Pico on the board for now. NEVER MAKE CONNECTIONS TO THE PICO IF IT IS CONNECTED TO POWER FROM USB OR BATTERY. It is easy to fry a Pico. There are a few differences between your actual components and the illustration, but you should be able to set it up correctly anyhow. Fritzing is the software used to make the diagram. It is freely available for [download](http://fritzing.org/download/) on the internet should you want to make your own diagrams.
+
+Make sure you can follow a path of connections or wires from the red battery lead all the way through the circuit and back to the battery back on the black lead. Don't turn on your battery pack until your instructor OK's your circuit.
+
+While we already know how to control the LED's on the Pico, our main interest is in using the Pico to interact with other things. Let's use the Pico to power and turn on the external LED rather than the battery pack switch.
+
+How can we create a circuit with the Pico? Electric current flows into the Pico from the USB cable and can be channeled by the Pico to flow out through nearly any pin in a great variety of ways depending on how the Pico is programmed. We can pick up the current from a pin, pass it through our LED and then we need to send it back where it came from in order to complete the circuit. Where we send the current when we are done with it is often called ground. The ground pin on the Pico is the leftmost pin on the bottom labelled Gnd in Figure 3.6. You can get paper worksheet copies of the Pico pinout diagram from your teacher whenever you need them. After we bring the current in our circuit to ground, the Pico sends it back up the USB cable.
+
+Before you set up this or any other circuit, make sure your *Pico is disconnected from the USB cable* so that it is not powered. It is easy to put things in the wrong place. That won't matter if there is no power, but if the Pico is powered you could short it out. Set up the circuit shown below in Figure 3.7. Notice that it doesn't matter whether the resistor comes before or after the LED, it still limits current in the circuit and protects the LED. When you are sure everything is set up correctly, attach the USB cable and connect to the Pico via WIDE.
+
+<img src="https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/FBB270LED2.png" width="100%" alt="LED Circuit 2" hover="LED Circuit 2">
+
+To turn on the light you could use `digitalWrite(A8,1)` as with the onboard LED's, but this time let's use `analogWrite(A8,1)` instead. The analog function gives you the option of setting the value anywhere between 0 and 1. Try putting different values in. What effect does the value have on the LED? This is point at which you should attempt **P>3.2C**.
+
+<!----><a name="3.3"></a>
+## 3.3 Sensors & Time
+
+### *• Reaction Timer*
+
+The goal of this unit is to be able to build a self-contained device that can record data from sensors. To achieve this we will need to look at sensors, ways of handling time and ways of storing data called arrays. Our preliminary project however will be to make a reaction timer in which we will learn something about time functions and sensors. A reaction timer is a device that records how long it takes for the user to react, for instance, how long it would take the user to press a button after they saw a light. Since people can get rather competitive about this sort of thing, it is best that we don't use the button on the Pico itself, we don't want them damaging the processor. Instead, we can set up our own buttons on the breadboard in a safer location. A button is a sensor, just a very simple one.
+
+This would be a good point to think through this project and develop an **algorithm**. An algorithm is a sequence of steps used to solve a problem. Watch this [TedEd](http://ed.ted.com/lessons/your-brain-can-solve-algorithms-david-j-malan) video for examples. Our problem is measuring someone's reaction time. You have the following to work with that you can program from your Pico: 1 red and 1 green LED on the Pico, 2 external buttons (button 1 and 2), a stopwatch inside the Pico, and the console for showing results. What would a reaction timer need to do and in what order? How would you use the 2 buttons and the lights?
+
+Now that you have thought through the process, we can get down to the details of buttons and clocks.
+
+### *• Buttons*
+
+![ Tactile switch](https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/tactileswitch6mm.png "Tactile switch")
+
+We will use a simple button called a tactile *switch*. They come in all sorts of sizes, colors and shapes. In Figure 3.11, pins that are on the same side of the button (1 and 3, 2 and 4) have no contact until the button is pushed, at which point all four pins are connected. Since the button is square, you have to pay attention to how your are placing it on the breadboard. There should be 2 breadboard holes between pins 3 and 4. Set up a couple of buttons on your breadboard as shown below.
+
+Be sure to have the pins coming out of the switch horizontally, not vertically and be sure that the jumper wire is on the same row as the button pin, not the corner of the button housing. When the button on the left is pushed, it will create a circuit between the Pico pin B6 and Gnd. The other button will connect the Pico pin B7 to Gnd.
+
+<img src="https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/FBB270ReactionTimer1.png" width="100%" alt="Reaction Timer Buttons" hover="Reaction Timer Buttons">
+
+On the Pico, most pins can be set to *watch* if a circuit between the pin and ground has been closed using just a couple of functions. The first function is `pinMode (pin, "input_pullup")` where pin is the alphanumeric for the pin you are using in the circuit. For instance `pinMode(A8,"input_pullup")` would set up pin B6 to detect if it was connected on a circuit with the Gnd pin. *Pullup* means that the pin is set to a high voltage, that is, it has been "pulled up" and if it gets connected to Gnd the voltage will fall and that change can be detected by the Pico. The second function is `setWatch()`. This function simply watches for some event to happen, like a falling voltage on pin B6, and then carries out some function when it detects the specified change. The syntax is a little tricky but it goes as follows:
+
+```javascript
+pinMode(B6, "input\_pullup");
+setWatch(function() {
+	console.log("B6 BTN");
+}, B6, {repeat:true, edge:'falling', debounce:50});
+```
+
+The result of these statements is that the Pico watches pin B6 for a falling voltage and if it sees one it sends the string "B6 BTN" to the console. Setting the `repeat` property to true tells the Pico to continue reporting voltage drops on B6. If we set `repeat:false`, it would only do it once. The function that is declared in `setWatch()` is carried out whenever the voltage on B6 drops, that is, whenever there is a circuit to Gnd. You can write as many commands inside the function braces { . . . } as you want. Notice that the function called by the `setWatch()` has no name.  It is known as an **anonymous function**. 
+
+It is also important to understand that we are now dealing with an **asynchronous** event, that is, we don't know when it will happen.  We've already dealt with asynchronous events when we used `prompt()` and `alert()`, but in those cases our programs waited for a user response before executing the next line.  In our present situation, the rest of our code will continue to execute while we are watching for pin B6 to drop. At whatever point B6 drops, the function in the `setWatch` will run.  JavaScript is *single-threaded*, that is, it can only do one thing at a time, so if B6 drops while our program is doing something else, it will run the function as soon as the processor is idle. The function inside the `setWatch` is called a **callback** function. The name callback comes from the idea of asking someone to do something and to *call* you *back* when they are finished.  You don't know how long it will take (asynchronous) but you can carry on with what you are doing while you are waiting.
+
+The debounce is necessary because these mechanical switches tend to bounce and therefore create multiple contacts even though from our human perspective there is only one. As usual, in the curly braces { . . . } you put whatever instructions you want carried out when the button is pushed. Use B6 as a reset button and B7 as the reaction response button.
+
+*Part 1*: set up your board and write the code so that a `console.log()` indicates which button has been pressed.
+
+### *• Date object*
+
+While we still haven't formally studied objects (a topic for Chapter 4), we have been using them and their methods. We will do this again because this is how JavaScript deals with time. In order to create a reaction timer, we need access to the Pico's clock and JavaScript methods that handle time.
+
+JavaScript has a Date object with several useful methods. The Pico recognizes a subset of those, but still plenty for our purposes. Type `Date.now();` into your WIDE console. You get a very large number which is approximately the number of milliseconds since midnight 1/1/1970. And how might your Pico know what time it is? In [non-volatile](http://www.vikingtechnology.com/uploads/nv_whitepaper.pdf) *memory*, the Pico stores what it believes is the number of seconds since the beginning of 1970. An accurate number is put there at the time the Pico is manufactured and it continues to update that number whenever it is under power and its internal clock is going. When the Pico is not powered, its clock is not "ticking" and so it loses accuracy with regard to the date number. Whenever the Pico is connected to a computer, it updates its date based on the computer's date. There is a setting in the WIDE at **Settings → Communication → SetCurrentTime** that toggles this auto updating feature on and off. Make sure it is on. Most of the date methods depend on the stored number being accurate, which means it needs to be updated frequently and any programs that need to know what the real date is need to have the Pico remain powered during the entire execution period of the program.
+
+Now to the Date object and its methods. Most of the Date methods require the construction of a Date object first. You would do something like:
+
+```js
+let ThisTime = new Date();
+```
+
+The name of the variable is up to you. From there you could use dot notation to access various Date methods like:
+
+```js
+ThisTime.getSeconds();
+ThisTime.getMonth();
+```
+
+Put them in a `console.log()` to see what they give you. Then try `ThisTime.toString()`. Is it correct? Do you know what the parts stand for? GMT is [Greenwich Mean Time](https://en.wikipedia.org/wiki/Greenwich_Mean_Time) which is the time it is in Greenwich, England. For historical reasons, that is now considered Universal Time Coordinated (UTC) and that is the time zone your Pico is set to work in. Our timezone in Washington is Pacific Time and it is 8 hours behind GMT/UTC. To get the correct time and date we can do the following:
+
+```js
+let timeZone = -8;
+let ThisTime = new Date(Date.now()+3600000*(timeZone+1));
+console.log(ThisTime.toString());
+```
+
+Using this parameter in the new `Date()` constructor allows us to modify the milliseconds since 1970 to match our timezone. The `+1` in line 2 is to compensate for daylight savings time. Once `ThisTime` is adjusted, we can expect it to reliably produce time and date information in our local time. Can you think of where the 3,600,000 comes from?
+
+Interestingly, the `Date.getTime()` method that we will use in our reaction timer does not require us to use the `new Date()` constructor. This is not universal in JavaScript but to use the `getTime()` method in the Pico environment, you can just do `console.log(getTime());` or let now = `getTime();` without ever creating a `new Date()` object. What you get is the milliseconds since 1970 and if all we care about is keeping track of how much time has passed, it doesn't really matter whether that number is correct or not, or what our timezone is. Your code will be much cleaner in the Pico environment if you do NOT create a `Date()` object. Just call `getTime()` whenever you need a reference to the current time.
+
+Consider this pseudocode:
+
+ - get start time and turn light on
+ - watch for reaction button then get button press time
+ - reaction time = (button press time - start time)
+ - report reaction time
+ - watch for reset button then turn off light
+ - prepare to do again
+
+In this situation, we really don't care how many milliseconds the start time is, we just care about the difference between the start time and the end time.
+
+*Part 2*: Implement the pseudocode on your reaction timer, and make the left button (B6) a reset button that sets it up again. You will need to somehow make the time of the light turning on random so that we actually measure reaction time and not anticipation or rhythm. You may want to make use of the `setTimeout()` function. It is like a one-time `setInterval()` function. Look it up.
+
+![Nokia 5510 Ad](https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/nokia5510.jpg "Nokia 5510 Ad")
+
+*Part 3*: Our goal is to make our reaction timer an independent device. Sending the score to the console is fine if you have a computer handy, but it would be better to have it be part of our device itself. Your teacher will give you a Nokia 5510 screen from an old cell phone. *LCD* stands for [Liquid Crystal Display](http://www.explainthatstuff.com/lcdtv.html). It is a very low power screen ideal for our purposes.
+
+<img src="https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/FBB270ReactionTimer2_bb.png" width="100%" alt="Reaction Timer with LCD Screen" hover="Reaction Timer with LCD Screen">
+
+Put the LCD pins into breadboard row A just above your Pico. Be sure that the LCD pin marked Gnd is in line with Pico pin A5. We will need some special commands to make this work. An LCD is a fairly sophisticated device. Nearly all of this code has already been written for us and you don't need to understand it all. Here is the code you need to send info to the LCD screen:
+
+```javascript
+digitalWrite(A5,0);
+digitalWrite(A7,1);
+digitalWrite(A6,1);
+function writeScore() {
+	d.clear();
+	d.setFontVector(40);
+	d.drawString(score,(d.getWidth()-d.stringWidth(score))/2,0);
+	d.flip();
+}
+let spi = new SPI();
+spi.setup({ sck:B1, mosi:B10 });
+let d = require("PCD8544").connect(spi,B13,B14,B15,function(){
+		writeScore();
+	}
+);
+```
+
+Line 1 drops the voltage on Pico pin A5 to 0 so it can act like a Gnd for the LCD screen. That is why we put the LCD Gnd on pin A5.
+
+Line 2 gives power to the LCD via pin A7. You can see the marking on the LCD for this pin is VCC, or VCC which has a complicated history but most often indicates the connection to the power line when looking at electronics diagrams.
+
+Line 3 gives power to BL on the LCD which stands for backlight. You don't actually need to power up the backlight to see the display. If you were running off of a battery, it would be better to leave this zero. Try it both ways.
+
+The function `writeScore()` is just a demo. There is nothing sacred about the name writeScore, you can make it whatever you want and other variables can be changed as well. The important things are the d.method lines. The last line of code brings in a set of methods associated with something called the d object. We will learn about objects in the next chapter. The methods associated with the d object are:
+
+**d.clear()** clears the screen.
+
+**d.setFontVector(40)** sets a size 40 vector font. You can change the number to get different sizes of font.
+
+**d.getWidth()** gets the width of the screen.
+
+**d.stringWidth()** gets the length of the string.
+
+**d.drawString(string,x,y)** prints the string in the current font starting at (x,y) with (0,0) being the top left corner. The calculation done with the widths is for centering the text on the screen. You could just use 0 for x and y.
+
+**d.flip()** is a special function for the Nokia 5110 that makes the text appear. The drawString() method sets up the text to be displayed but doesn't actually draw it on the screen.
+
+There are many other graphic methods available for the Nokia 5110 to draw circles and rectangles and do rotations, etc. that can be found in the [Pico documentation](http://www.espruino.com/Reference#software).
+
+The line `let spi = new SPI()` sets up a [Serial Peripheral Interface](https://learn.sparkfun.com/tutorials/serial-peripheral-interface-spi). Basically it is an agreement between the Pico and the LCD about how they will talk to each other. It's beyond the scope of this class, but understand that communication between digital devices happens very quickly and has to be precise and they each must follow agreed protocols in order for the data to be received accurately.
+
+The `spi.setup()` says that the Pico will use B1 for it's sck (Serial ClocK) and B10 will be used for its mosi (Master Out Slave In) communication. Again, the full explanation of this is beyond the scope of the course, but it's all necessary for successful communication between these digital devices. In most situations, the microcontroller will be the *master* and the peripheral device will be the *slave*.
+
+Finally in line 12, `let d = require("PCD8544")` etc. employs a Pico function `require()` that has it go on the internet and download a module called PCD8544 in order to create the d object. If you'd like to look at the module, you can see it [here](http://www.espruino.com/modules/PCD8544.js). You will understand some of it. A module is a bit of code written by someone else, in this case the developer of the Pico (Gordon Williams), in order to make it easier for us to build things with the Pico. It contains low level commands and Nokia 5110 specific stuff that would be pretty hard for the average user to come up with, including some hexadecimal things that could be directly turned into those 1's and 0's that all digital devices ultimately understand. This command line further goes on to specify the function of pins B13, B14 and B15 which are also connected to the LCD.
+
+In line 13, you find a call to the function `writeScore()`. You should always call a function that does something with the LCD at the end of the `require()`. Fortunately, you can readily use lines 10 through 15 as boilerplate. If you want to use an LCD, you need these and you don't need to change them. Just use them and forget them.Add to you code whatever necessary to give feedback through the user via the LCD screen. Consider using more than one line on the LCD (Hint: the last parameter (y) of `drawString(text,x,y)` is the vertical location. You might also consider tracking the low time/score.
+
+<img src="https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/FBB270ReactionTimer3_bb.png" width="100%" alt="Reaction Timer with Battery Pack" hover="Reaction Timer with Battery Pack">
+
+*Part 4*: If you succeeded with getting everything to work in the first 3 parts, you are now ready to cut the umbilical cord and set your reaction timer free. Make sure the latest version of your software has been sent to the Pico and then type the command `save()` in the console (right side) and hit return. You will see "Erasing Flash" and some other stuff and then Done! The `save()` function tells the Pico to store the program in non-volatile *flash memory* which will remain even when the power is off. The Pico has 384KB (kilobytes) of [flash memory](http://www.explainthatstuff.com/flashmemory.html). A typical digital photo can be several megabytes so we can't go storing a bunch of photos or sound files on our Pico, but it's plenty for the text files that we use for programming. HTML files are also text files.
+
+Disconnect your Pico in the WIDE and then physically disconnect your Pico at the USB cable. Attach a turned off battery pack as shown.
+
+Make sure the red battery lead is going to the BAT IN pin on the Pico, it's the first pin on the top left (opposite the GND pin). REMEMBER TO HAVE ALL POWER OFF WHEN ATTACHING THE BATTERY OR CHANGING WIRING. BE CAREFUL NOT TO DRAG THE BATTERY LEADS OVER THE TOP OF THE PICO.
+
+Turn on the battery pack. You should see your Pico give the red power up flash and you should see your LCD screen light up (unless you turned off the backlight). Unfortunately, your program won't make anything change on the LCD screen. Your program is in memory and the Pico is powered up and ready to go, but the Pico doesn't know it's supposed to run the program. You probably have tons of programs on your PC, but your computer doesn't run them unless you tell it to. This is the same situation.
+
+The solution to our problem is the `onInit()` function. The Pico is set up to look for a function called `onInit()` and run it any time after it is powered up, that is, INITialized. To make it run your program you need to wrap your whole program inside `function onInit() {your program goes here}` and then save it to the Pico by typing `save()` into the console. When you run it just on battery power, and you switch the battery on, your program will start running.
+
+Please note that you don't always need to wrap your entire program in the `onInit()` function. In some cases you may need functions or global variables outside the `onInit()` function in order for everything to have the right scope. These variables or functions outside of `onInit()` will still be loaded and available when you `save()` the program to your Pico, but only the `onInit()` function will be run automatically when the Pico is powered up.
+
+Add a battery pack, save your code and take it out and let some users try it. The user interface of a software or hardware product is called its UI, the user experience is called the UX. What sort of user responses did you get that could improve the UI or UX of your design?
+
+Part 5: Enhance your program to use an audio alert.  Perhaps people react faster or slower to sound. Connect a speaker as shown below.
+
+<img src="https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/FBB270ReactionTimer4_bb.png" width="100%" alt="Reaction Timer with Speaker" hover="Reaction Timer with Speaker">
+
+It doesn't really matter whether the red or black wires are switched, but to be consistent, black should be on the Gnd side. [Speakers](http://www.edisontechcenter.org/speakers.html) work a lot of different ways and ours is called a piezoelectric speaker. For our purposes it's enough to know that if you *oscillate* the voltage on a speaker at a frequency of 500 Hz (*Herz* is cycles per second), then the speaker will vibrate and make a sound at that frequency. 500 Hz would be something like a female voice in pitch. Since our speaker makes a circuit between B3 and Gnd, if we fluctuate the voltage at B3 we can get a sound out of the speaker. The command syntax to oscillate the voltage is similar to lighting LED1:
+
+```javascript
+analogWrite(B3, 0.7, {freq:500});
+```
+
+Using `analogWrite()` gives us more output options, like frequency. The 0.7 refers to what percent of the maximum output voltage we use for the high voltage in our oscillation. In this case 70%. The maximum voltage is 5 volts, so that means the voltage will oscillate between 0 and 3.5 volts. The higher the maximum voltage, the louder the sound, but you probably won't notice much difference until the voltage is very low. You could improve your volume control by adding a resistor in line with the speaker.
+
+The higher the frequency the higher the pitch. If you want more information about producing sounds on the Pico, take a look at Appendix 3.
+
+<!----><a name="3.4"></a>
+## 3.4 Arrays & Data Logging
+
+> **Target**: Be able to create a self-contained microprocessor device that can access sensor data, log it to memory with arrays and retrieve it.
+
+Suppose we wanted to store all of the reaction times rather than just keeping track of the fastest one. The Pico has flash memory that we can write to and we could make a whole bunch of variables and store a value in each one, but that is very inconvenient. Instead, we can make use of a JavaScript object that is specifically designed to store data - the array.  For additional background information on arrays and other data structures, take a look at [Crash Course Computer Science episode 14](https://www.youtube.com/playlist?list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo).
+
+Follow along with these examples by pasting the code in your WIDE. To create an array you can write something like
+
+```js
+let myArray = [];
+```
+
+Notice we are using square brackets for the first time. The variable name is up to you and does not need to include the word Array. To store things in `myArray[]` we can write:
+
+```js
+myArray[0]="bob";
+myArray[1]="sue";
+myArray[2]="ted";
+```
+
+We have as many slots in `myArray[]` as we want to make and we can put any type of data in the array that we want. It is assumed that our first spot will be the zero spot, so get used to counting with zero as your first number. In computer science we typically start counting with zero not one.
+
+To get the data back out we can write:
+
+```js
+console.log(myArray[2]);
+
+> ted
+```
+
+There are also array properties and methods that come in handy, for instance
+
+**myArray.length;** The length property returns the number of elements in the array, in our case, 3. If you're following along in your WIDE, you'll need to put this property in a `console.log()` to see the result and avoid an error.
+
+**myArray.push("ann");** would make `ann` the new last element in the array and return the new length which would be 4.
+
+**myArray.unshift("pat");** would make `pat` the new first element in the array and would return the new length which would be 5.
+
+**myArray.indexOf("sue")**; would search the array looking for `sue` and return 2, which is now the location of `sue` in our array. To see the 2, you need to put the method in a `console.log()`.
+
+**myArray.sort();** would rearrange the items in the array in alphabetical order: "ann", "bob", "pat", "sue", "ted"
+
+There are several other interesting array methods that you can look up on w3schools.com or the Espruino.com reference page.
+
+### *• Logging at Set Intervals*
+
+There are many situations where people would like to place a sensor somewhere to monitor something and would like to get sensor readings at set intervals like every minute, hour or second. This is called data logging.  For instance, suppose we wanted to monitor the voltage fluctuations that occur on pin A5 of a Pico when nothing is attached to it.  You could use the following code:
+
+```js
+let arrayMax = 10; //size of the array
+let pinValArray = [arrayMax]; //this sets up the array
+let i = 0;
+
+function pinRead() {
+  let pinVal = analogRead(A5); //read the pin
+  pinValArray[i] = pinVal;     //put into the next array slot
+  console.log(i + " " + pinVal);
+  i+=1; //keeps track of how many times pinVal's are put in pinValArray
+  if (i>arrayMax) {
+      clearInterval(logger);
+      console.log("FULL");
+}
+
+function dataOut() { //a function to print all the array values
+  for (let j=0; j<arrayMax+1; j++) {
+    console.log(j + " " + pinValArray[j]);
+  }
+    console.log("DONE");
+}
+
+let logger = setInterval(pinRead,100);
+```
+
+The function `pinRead()` puts the value of A5 into the next slot of `pinValArray` and it is called every 100ms by the interval timer called `logger`.  The global variable `i ` is used to keep track of how many times `pinRead()` is called and is used to stop `logger` when the array is full.
+
+The function `dataOut()` simply loops through pinValArray[] and prints the values to the console.  It is never called in the code above, but you can call it directly by just typing `dataOut()` into the the console after running the program.
+
+Go to **P>3.4A** to find this program and try it out and get started on the next project. In this project, you will create a data logger using one of four possible sensors: a light sensor, a temperature sensor, a distance sensor or an IR reflectance sensor. The logger will be placed in some appropriate location for an appropriate length of time, collect the data and then be retrieved and the data reported back. The following sections describe how to manage  the limited memory of the Pico, how to set up the various sensors and get data, but the overall design is up to you.
+
+One feature of the WIDE console that is helpful is that any data that is listed in the console can be copied simply by dragging over it. No "copy" command is required.  Once you've drug over the data, you can paste it into a spreadsheet or graphing program to better display or analyze the data you collected.
+
+### *• Memory Constraints*
+
+The Pico, due its small physical size has very limited memory. While it has 384kb of flash, much of that is used to store the JavaScript interpreter. Then some more of it will be used to store the program to be run. What is left over is often about 80kb. Arrays can eat up a lot of memory depending on the type of data that they contain and the number of elements that they have. In order to decide how big to allow our arrays to get, we need to know a little more about memory.
+
+80kb means 80 kilobytes, which means 80 x 1024 bytes. In computer science *kilo* doesn't mean 1000, it means 1024 ( =2^10^ ). So 80kb is about 82,000 bytes, but we'll just leave it at 80,000 bytes to be conservative and keep the numbers easy.
+
+What can we do with 80kb? Well each byte is 8 bits. A bit stands for **B**inary dig**IT**, which means each of those 1's and 0's that the computer cares about. So we have 640,000 (80,000 x 8) 1's and 0's to work with. But what does that mean practically?
+
+Each character typically requires 2 bytes. So the word "bob" in an array would take up 6 bytes. Let say the average word length in English is 5 letters or 10 bytes, if our array stored 8000 words, we would be in danger of overflowing our memory capacity.
+
+In the reaction timer project, we weren't storing words, we were storing numbers. The Espruino implementation of JavaScript gives us a way to create arrays that store only numbers, and if we use integers, they only need 8 bits or 1 byte each. You can create an Int8Array as follows:
+
+`myArray = new Int8Array(1000);`
+
+This creates an array of 8 bit integers large enough to hold 1000 of them. You don't have to specify the size of the array (in this case 1000) when you declare it, but it's a good thing to think about and doing so also allows us to type the `process.memory()` function in the console to see how much memory will be taken up. Load a program from the WIDE into a Pico, then type `process.memory()` into the console. It will return a "free": 5021 sort of number telling you how much memory is available. The number refers to how many memory blocks are available and each block is 16 byte
+
+8 bit integers can store numbers in size between -2^7^ and +2^7^, that's -128 to + 128 since we need 1 of the bits for the sign. If all your values fall in that range, you can save a lot of memory by storing them as 8 bit integers, rather than as characters in a standard array. For the characters "116" you would need 6 bytes. That's a 6 to 1 improvement.
+
+If 8 bits doesn't store big enough numbers you can use Int16Array or Int32Array. If you need decimal points, then you can use Float32Array and Float64Array, but these start to eat up space too. Create some arrays. Look how the free memory changes with the size and kind of the array.
+
+For additional background information on memory and storage, take a look at [Crash Course Computer Science episode 19](https://www.youtube.com/playlist?list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo)
+
+### *• Light sensor*
+
+The light sensor available is a GM5539 **photoresistor**. It has a high resistance when the light level is low, and a low resistance when the light level is bright. By using a circuit called a voltage divider, we can create a nice range of voltage values that change with the light intensity and are within a range the Pico can monitor. The setup is given below. The resistor shown should be a 10kΩ resistor.
+
+<img src="https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/FBB270Photometer.png" width="100%" alt="Photometer" hover="Photometer">
+
+Note that the Pico is contacted at Gnd and the photoresistor is at the VDD/3.3 pin, which is 3.3V. In addition we are using a right end pin for the first time which happens to be A2. We are using this end pin hole since it allows analog input (it is an ADC or analog digital converter pin) and since it will leave the top of our Pico free for the LCD screen later. If you bend the jumper slightly, it will make solid contact in the A2 pin hole.
+
+Now you are ready to write the code to read A2 and output the value to the console. The only function we need is something like
+
+`let lightvolt = analogRead(A2)`
+
+The `analogRead()` function will return a value between 0 and 1, with 1 being something like 100% of the original 3.3 input volts, and 0% being 0 volts. I say "something like 100%" because it isn't really a percentage, but the numbers spread out nicely over the 0 to 1 range, so you can think of it like a percentage. Unfortunately the numbers are not very friendly. We can do better than 8 digit decimals. Use JavaScript to convert the ugly numbers into 2 digit integers that range from 0 to 99. Note that `analogRead(A2)` will never return full 1.0 since there will always be a slight bit of resistance on the line.
+
+### *• Temperature Sensor*
+
+<img src="https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/DS18B20.png" height="250px" title="DS18B20 thermistor" alt="DS18B20 thermistor">
+
+We can detect changes in temperature using a sensor called a *thermistor*. For this project, instead of a simple thermistor, we will use a small chip called a digital thermometer. It has it's own program in memory, and integrated components including a thermistor. The model we will use is the [DS18B20](http://datasheets.maximintegrated.com/en/ds/DS18B20.pdf).
+
+There is an Espruino module that we can require in the code to make it easy for us to get data from the thermometer. The following 3 lines of code will send the current centigrade temperature to the variable temp if the data line of the DS18B20 is connected to pin A8 of a Pico.
+
+```javascript
+let ow = new OneWire(A8);
+let sensor = require("DS18B20").connect(ow);
+let temp=sensor.getTemp();
+```
+
+The first two lines only need to appear once in the program. The last line can be called as often as you want to check the temperature. The breadboard layout would be as shown below.
+
+<img src="https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/FBB270ThermometerDS18B20.png" width="100%" alt="Thermometer" hover="Thermometer">
+
+There are a couple of aspects of the layout that require caution:
+
+First, the DS18B20 must be facing the correct direction or you will fry it. Notice that it has a flat side with microprint and a rounded side opposite. The flat side must be facing toward the ground side of the bread board, that is, it must be facing you as you look at the breadboard oriented as it is in the diagram. If you have it backward and apply power, it will fry the DS18B20. If you smell something burning when you power it up, yank out the USB cable immediately.
+
+Second, you need to notice the 4.7kΩ resistor connected between the 3.3 volt power line and the data line going to pin A8. This functions as a pull up resistor as you used in the Loop game in section 3.2, but this time we use an external one rather than programming the Pico to create an internal one. This is a requirement of the DS18B20.
+
+Third, the data is floating point decimal which can take up quite a bit of space depending on how many data points you take. You may wish to round the data off and store it in an Int16Array. Can you come up with a way to maintain 1 or 2 decimal places even though you use an integer array?
+
+### *• Distance Sensor*
+
+To measure distance we can use an infrared reflectance sensor called a [Sharp GP2Y0A21YK0F](http://www.sharpsma.com/webfm_send/1489). It can give reasonably accurate distances between 4 and 24 inches. The distance accuracy depends on the surface, shape and color of the object since the sensor is measuring the strength of the energy being bounced back to determine its distance. If you are trying to sense an object that will be moving horizontally, it is best to mount the sensor vertically. *In order to adequately power the sensor, you need to have the battery attached and on*, even if you are still using the USB cable. Make sure you have the black wire to ground and the red wire to power -- if they are reversed you will fry your sensor.
+
+<img src="https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/FBB270IR2Y0A21.png" width="100%" alt="IR Distance Sensor" hover="IR Distance Sensor">
+
+The diagram shows a breadboard set up to read pin A5, but you can use any ADC (**A**nalog to **D**igital **C**onverter) pin you like to read the output from the sensor. Check your Pico diagram to see which pins are ADC.  You need to use an ADC pin because they are the only pins on the Pico that can read analog input voltage and convert it to a digital signal for processing by the Pico.
+
+The following function can be used to convert the output from the sensor roughly to inches. The conversion formula is a little scary because the output of the sensor is not linear.
+
+```javascript
+function getIr() {
+	let raw = analogRead(whichever pin you use);
+	let dist = -138.05*Math.pow(raw,3) + 293.98*Math.pow(raw,2) - 210.28*raw + 54.4;
+	return dist;
+}
+```
+
+You can write your own conversion function. If you've had Precalculus, try taking raw data from A5 and make a table on a TI graphing calculator in the form L1=voltage and L2 =distance, and then do a cubic (or some other) regression. Note that the voltage from the sensor at A5 will always be between 0 and 1 and will increase as the sensor gets closer to the object. Also note that the sensor doesn't actually measure distance, rather it reports the amount of IR energy reflected back to it, which gets less as distance increases. But, the color and substance that is reflecting the IR can also affect the energy, and therefore the perceived distance.
+
+The data from the sensor is floating point decimal which can take up quite a bit of space depending on how many data points you take. You may wish to round the data off and store it in an Int16Array (see Memory Constraints section earlier in this chapter). Can you come up with a way to maintain 1 or 2 decimal places of information even though you use an integer array?
+
+### *• IR Reflectance sensor* 
+
+Sometimes we don't need to know how far something is, we really just want to know if an object is close or not, for instance whether a sheet of paper is in a tray or not, or whether a door is closed or not. In these cases we can use an IR reflectance sensor. Like the IR distance sensor above, it sends out an IR beam and watches for how much light is bounced back. Unlike the distance sensor though, it is only useful for close range detection, typically less than 1 cm. It is also often used to distinguish between light and dark colors since light colors reflect more than dark colors. The advantage of these sensors over the IR distance sensor is their small size and low cost. If you have seen Mini-sumo bots or line-following robots, they use these simple sensors to distinguish between the black of the out-of-bounds or line and the white space.
+
+The following functions can be used to poll a Pololu QTR-1RC sensor on pin A5 every half second. Any pin can be substituted for A5, not just ADC pins. The output of the QTR-1RC is already digital. The `getLight()` function works by pulling pin high using `pin.set()`. Then it reads pin until the voltage drops using `pin.read()`. The `pin.read()` function is either 1 or 0. While waiting for pin to drop, c is incrementing. If an object is close, the reflectance will be brighter, which makes pin drop faster. This will result in a smaller value for c. So a small c value means an object is present or has a light color and higher c value means nothing is close or it is dark.
+
+```javascript
+function getLight(pin) {
+	let c=0;
+	pin.set();
+	while(pin.read()) c+=1;
+	return c;
+}
+
+function report() {
+	let IRval = getLight(A5);
+	console.log(IRval);
+}
+
+setInterval(report, 500);
+```
+<!----><a name="3.5"></a>
+## 3.5 Motors & Robots
+-------------------------------
+
+> **Target**: Be able to control motion and motors by programming a microcontroller using asynchronous techniques.
+
+### *• Motors*
+
+In Chapter 3 we have been using the Pico microcontroller. So far we have used it to control speakers, lights and an LED screen, as well as using it to collect information from various sensors. In this section we will use JavaScript to program the Pico to control motors so that we can create motion.
+
+The kind of [motor](https://learn.sparkfun.com/tutorials/motors-and-selecting-the-right-one) that we will use is a DC brush motor. These are the cheapest and simplest motors available. To make one run, all we need to do is connect it to an appropriate power source. Since it is DC (**direct current**), connecting it to a wall outlet would be a bad idea. Power coming from wall outlets is AC (**alternating current**). Instead, we can use our battery pack. Batteries produce direct current.
+
+Get a robot chassis. The word **robot** is an English corruption of a Czech word *roboti* coined by K. Čapek in his 1921 play *R. U. R.* Čapek's roboti were not so much mechanical devices as organic androids, but the play was popular and the term became part of the global language meaning *something that is constructed by people but that can act on its own to some degree*.
+
+![Robot comic](https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/robotcomic.jpg "Robot comic")
+
+Get your battery pack and a wheel/motor unit. Connect the battery pack to one of the wheel motors using your breadboard: red to red, black to black. You should see the motor spin when the battery pack is switched on.
+
+One of the problems with this sort of motor is that it creates an electromagnetic field when it is running and then when it stops, that field collapses and shoves electric current back the other way through the power wires. This is not a problem when the motor is connected to just a battery, but if the motor is connected to a microcontroller, it can damage the IC. So we can't just hook up the motor to a Pico pin and turn the pin on and off to drive the motor. It would work, but we'd likely damage the Pico in the process. Instead we will use a separate IC that is designed to drive motors. It has diodes and other circuitry to protect the Pico. The chip we will use is the [L293D motor driver](http://www.robotix.in/tutorial/auto/motor_driver/). The L293D actually has 4 different power outputs so it could drive 4 different motors, but we will set it up so that each of our motors uses 2 outputs: one for forward and one for reverse.
+
+Use the following layout to connect your Pico, the L293D, the battery and the motors on the robot chassis. Take your time and be careful. This is the most complicated wiring you have done. **Make sure the <u>notch end</u> of the L293D is pointed <u>toward</u> the Pico**. Use plain wire to make short jumpers for all of the connections to the power and Gnd rows on the breadboard - these are the red and black jumpers on the Fritzing layout below. Install these first, it will keep the spaghetti to a minimum.
+
+<img src="https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/FBB270Robot.png" width="100%" alt="Motors and L293D Driver" hover="Motors and L293D Driver">
+
+Note that the yellow motor leads in the diagram are red on the motor and the green motor leads in the diagram are actually black on the motor
+
+In addition to the layout, it is helpful to know what the pins on the L293D are doing. As you can see in the diagram below, the L293D has 16 pins. They are split up into 4 equal sections each containing an INPUT in , an OUTPUT pin and a GND pin. The INPUT is connect to a Pico pin which can turn on and off the OUTPUT by going high or low. In addition, there is a Vss pin which is the power for the L293D chip and an Vs pin which is linked to the power supply of the microcontroller (Pico in our case). The Vss and the Vs pin can be linked to the same source, which in our case is the battery pack. Finally there are ENABLE 1 and 2 which enable the left side (pins 1 - 8) and the right side (pins 9-16) respectively. We want to enable the entire chip so we will keep both ENABLE pins high.
+
+<img src="https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/L293DPinOut.png" alt="L293D pinout" hover="L293D pinout" height="225px">
+
+If we connected one lead of our motor to an L293D output and the other lead to battery Gnd, we could turn on and off out motor. But one nice feature of our motors is that they can run in reverse if we reverse the voltage. For that reason, we will connect both red and black leads to OUTPUT's and by making one high and the other low and vice versa, we can turn the motor both directions.
+
+The simplest way to control motors is to send a voltage high to the INPUT corresponding to the OUTPUT you want to activate. Remember, you have the red of a motor connected to one OUTPUT and the black of the same motor connected to another OUTPUT. You need to have one INPUT/OUTPUT high and other low. If they are both high, nothing will happen.
+
+The first function you need to write is a `stop()` function that sets all the OUTPUTS to low. There are several ways to do this, but this will work:
+
+```javascript
+function stop() {
+	digitalWrite(A6,0); //A6 is right reverse
+	digitalWrite(A7,0); //A7 is right forward
+	digitalWrite(B6,0); //B6 is left reverse
+	digitalWrite(B7,0); //B7 is left forward
+}
+```
+
+Put the robot up on its rack and turn on the battery. Wheels may begin to turn. Send the stop function to the Pico from the editor. Whether the wheels are turning or not, type `stop()` into the console to verify things are wired correctly and the function works as expected. Then figure out what a `go()` function would look like and send it along with `stop()` to your Pico. When you type `go()` in the console, both wheels should go forward. Note that the `go()` function simply sets the pins high once, but they will remain high, and the wheels will continue to turn until you set them back to 0 with the `stop()` function. Type `stop()` in the console to stop the wheels. Write and test functions for `reverse()`, rotate `right()` and rotate `left()`. Turning can be accomplished by stopping one motor while driving the other, or you can turn even quicker by reversing one motor while the other is in forward. It is better to be able to get reproducible and precise movements than to get fast but inconsistent ones.
+
+Put your robot in forward and disconnect it from the USB cable. Let it drive along the floor. You may notice that it pulls to one side or the other. Check to see if the wheels/motors are aligned and tightly secured to the chassis. You'll have to deal with the idiosyncrasies of your robot as best you can. As long as they are predictable, you can build in compensations.
+
+Having a robot that drives in a straight line is advantageous. You also know that stopping a wheel on one side makes the robot turn. What would be nice is a way to slow down one motor slightly so that we could compensate for a pull to the right or left. We can do this by using `analogWrite()` rather than `digitalWrite()`. The Pico pins that we are using can work either way. An analog version of the `go()` function would be:
+
+```javascript
+function go() {
+	analogWrite(A7, 1);
+	analogWrite(B7, 0.9);
+}
+```
+
+Use `analogWrite()` and voltage adjustments if needed to make your robot run as straight as possible and turn as consistently as possible. Traction and slippage is a factor especially on turns. Slowing things down often improves traction. Consider writing a `goslow()` and `gofast()` function.
+
+For additional background on robots, take a look at [Crash Course Computer Science episode 37](https://www.youtube.com/playlist?list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo).
+
+### *• Preplanned Behaviors*
+
+A good first programming problem is to get your robot to go out a certain distance, turn around, and come back to the starting location. If you try something like . . .
+
+```javascript
+go();
+right();
+go();
+stop();
+```
+
+your robot won't do anything, since it only takes a fraction of a second to go through each function. The motor wouldn't even have a chance to start turning before all the functions have finished. What we need is a way of controlling the timing of each instruction. The simplest way to do this is with a series of `setTimeout()` calls. For instance:
+
+```javascript
+setTimeout(go, 2000);
+setTimeout(stop, 3000);
+```
+
+This code would cause the robot to go forward after 2 seconds and then stop 1 second later. Keep in mind that `setTimeout()` calls are are *asynchronous*, that is, the next line of code can be run before the `setTimeout()` finishes. In this case, you can consider that both lines of code begin almost simultaneously. If you had 7 setTimeout's in a row, you could consider that all of them would start their execution simultaneously. Remember, we don't use parens after the function name inside the setTimeout because we don't want it to execute immediately.
+
+### *• Robots and Sensors*
+
+At this point our robot is blind. We can use sensors to give it eyes. The most useful sensor for a traveling robot is a distance sensor. Get a Sharp GP2Y0A21YK0F distance sensor and  bolt it to the *left* side of your robot chassis and facing *left* but slightly forward. Incorporate the code from the previous section on [IR reflectance sensors](#*•-ir-reflectance-sensor*) into your robot driving code. You may need to make the variable connected to the distance being sensed a global variable.  Make sure you connect the sensor to an ADC pin (A5-A7, B1) on the Pico.
+
+Now write code that will have the robot drive parallel to a wall on its left side for 16 feet and maintain a range between 8 and 12 inches from the wall.   If your team members string together your USB cables, you can keep your robot on a "tether" so you can see console info during your trial runs, or you can have the red and green lights of the Pico turn on/off given certain sensor information so you can see what's going on. As algorithms get more complicated, sometimes pseudo-coding with a flowchart can be helpful. 
+
+Continue with **P>3.5A**.  The section on interrupts below may be useful but is not required.
+
+### *• Interrupts*
+
+When programming complex autonomous robotic behaviors, it can be very helpful to have an interrupt, that is, a way of stopping one function, starting another and letting it run until it finishes, then going back to the original function. Having the interrupt run until it is finished can be tricky. 
+
+<iframe height="100%" width="100%" src="https://repl.it/@jeffseely/Interval-Interrupt-Demo?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
+Consider the code above. The variable `sensor`declared in line 1 will increase in value as the program runs, starting at 0.  It is just providing changing data for the program to look at.  The `run()` function's main job is to console.log the sensor value in line 17.  But before doing that it checks for any condition that would require it to abort.  It checks for these conditions in lines 5 and 11.  In the case of line 11, if sensor is greater than 50, the whole program will terminate.  In the case of line 5 where sensor is divisible by 11, an interrupt is implemented.  Notice that in line 7, the interval timer that is calling `run()` is cleared and then an interval timer that calls `adjust()` is initiated.  If you look at the `adjust()` function starting on line 20, you can see that it has very similar code which clears the interval timer that is calling it and starts the interval timer that is calling `run()` again.  In this way functions can interrupt themselves when some condition is encountered and transfer program control to some other function, which may or may not give it back.
+
+For another example, send the code below to your Pico. Can you see how lines 27 - 30 call the interrupt function whenever `sensor` is greater than 9? Note that the interrupt shuts down the main interval timer on line 15. Can you see at line 21 that the interrupt will continue to run for `duration`? Can you see at line 10 that the last thing `greenOff()` does is to restart the main timer?
+
+```javascript
+let state = true;
+let sensor = 0;
+let mainTimer = null; //needs to be a global since called by 2 functions
+let interruptTime = 3000; //length of interrupt
+
+function greenOff() { //ends the interrupt and restarts mainLoop
+	console.log("greenOff");
+	console.log(" ");
+	digitalWrite(LED2,0);
+	sensor=0;
+	startLoop();
+}
+
+function interruptGreen(duration) { //turns on green LED2 for duration ms
+	clearInterval(mainTimer);
+	digitalWrite(LED1,0);
+	console.log("redOff");
+	digitalWrite(LED2,1);
+	console.log("greenOn");
+	console.log("for "+duration+" ms");
+	setTimeout(greenOff, duration); //calls its shutoff in duration ms
+}
+
+function mainLoop() { //alternates red LED1 on and off
+	sensor+=1;
+	console.log(sensor);
+	if (sensor>9) {
+		interruptGreen(interruptTime);
+		return; //Keeps mainLoop from executing during the interrupt
+	}
+	if (state) {
+		digitalWrite(LED1,0);
+		state=!state;
+	} else {
+		digitalWrite(LED1,1);
+		state=!state;
+	}
+}
+
+function startLoop () { //calls a mainLoop every 500ms
+	console.log("startLoop");
+	digitalWrite(LED1,1);
+	console.log("redOn");
+	mainTimer = setInterval(mainLoop, 500);
+}
+
+setWatch(function() {
+	console.log("BTN");
+	setTimeout(startLoop, 2000);
+}, BTN, {repeat:false, edge:'rising', debounce:50});
+```
+
+### *• Servo Robotics*
+
+Not all robots are mobile, most stay in one place and do a particular task. Many of these robots use something called a *servo motor*. You've used plain DC motors, but what makes [servos](http://www.jameco.com/jameco/workshop/howitworks/how-servo-motors-work.html) special is that their position can be precisely controlled and held. The servos we will use only turn 180º, but we can precisely determine where in that 180 degree range the servo moves to and how long it stays there until moving somewhere else. Servos have many applications in manufacturing as well as remote control cars, planes, DVD players, automobile accelerators. Here's a little [video](https://www.youtube.com/watch?v=bu3SPwzcocU) that gives you some additional information although not all of it applies to the servos we will used.
+
+Unlike the plain DC motor you've been using, the servo has 3 leads: a red for power and black (brown) for Gnd and a yellow (orange) for position control. Get a servo and add it onto your breadboard as shown below. Connect the yellow control line to Pico pin A8 (or any other PWM pin you choose).
+
+<img src="https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/FPicoBB270Servo2.png" width="100%" alt="Servo motor" hover="Servo motor">
+
+The Pico is not powering the servo, it is only controlling its position via the yellow control line. The control line does not pose an electromagnetic threat to the Pico. Because of this, we don't need to use the L293D to control servos with the Pico. In order to control the position of the servo, we send pulses from B4 every 20 ms (which is 50 Hz). By varying how long each pulse lasts, we can communicate to the servo what position it is supposed to be in. Varying the width of the pulse is called Pulse Wave Modulation or PWM and most of the pins on the Pico have the capacity to do PWM The servo has its own little IC inside that is listening for PWM and knows what to do with it. For most small hobby servos, a pulse width of 1.5 ms tells the servo to go to its middle position, think of that as zero. The servo can then turn 90º clockwise and 90º counterclockwise from there. Here's the syntax for sending a 1.5 ms pulse every 20 ms:
+
+```javascript
+setInterval("digitalPulse(B4,1,1.5)",20);
+```
+
+This line sets up an interval timer to fire every 20 ms (50Hz). What it fires is a pulse on pin B4 of value 1 (high) for a length (or width) of 1.5 ms. The reason for the quotes is that we don't want the digitalPulse() function to be called immediately which the parens would require, yet we want to predetermine what the parameter of digitalPulse() are. The quotes allow us to work around this problem. Another work around would be to assign the digitalPulse() function and its parameters to a variable name outside of the setInterval() and then just call the variable name without parens. What we would like to do, however, is be able to easily change (*modulate*) the width of the pulse, so the following would be even more helpful:
+
+```javascript
+let pw = 1.5;
+setInterval("digitalPulse(B4,1,pw))",20);
+```
+
+Paste this into the WIDE and send it to your Pico. Now you should be able to type `pw=0.6`, etc. into the console and move the servo. Now we have a couple of problems. One is that it is easy to put too large or too small of values in for pw which is not good for the servo, and the other is that it is hard to see where the servo is rotated by just looking at its shaft.
+
+To solve the first problem we can build some protection into our setInterval() call as follows:
+
+```javascript
+setInterval("digitalPulse(B4,1,E.clip(pw,0.6,2.4))",20);
+```
+
+The `E.clip()` method is not standard JavaScript. **E** in this situation stands for **Espruino** and `E.clip()` is one of a number of methods written specifically to deal with issues that arise with microcontrollers. One of the advantages of JavaScript is that there are many libraries of functions and modules that have been written for the various environments in which it is used. What the `E.clip()` method does is to confine the value of the first parameter `pw` between the values of the second two parameters, in this case 0.6 and 2.4. `E.clip()` "clips" off anything that is outside the range that we want and so this protects our servo from inappropriate values. The normal values for small hobby servos would be between 1.0 and 2.0 with 1.5 being the middle, however by experimentation with our particular servos, the 0.6 to 2.4 range has been established as safe. A challenge for this section is to create an interesting robotic application of a servo motor. You are encouraged to use sensors and LED's. You may also use a DC motor if there are some extras available.
