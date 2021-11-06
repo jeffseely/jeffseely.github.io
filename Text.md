@@ -256,3 +256,390 @@ produces the number 4, which is nice because that is probably what you intended 
 `"5" + 1;`
 
 produces the string "51", which may or may not be what you wanted. This feature of JavaScript cuts both ways. Sometimes it helps you, but just as often it produces results that you didn't expect or intend and it can make it difficult to find errors in your program.  While you can make your code more compact sometimes by taking advantage of type coercion, your code will be more readable if you make use of the `Number()` and `String()` functions to indicate conversion between types.
+
+# 2 - Control Flow
+
+###### tags: `apcsp txt` `cs`
+
+We read from the top of the page to the bottom, we do math problems from top to bottom, but computer programs are not so simple.  Sometimes sections repeat or one instruction jumps to another, or some sections may be skipped entirely. When we read computer programs, we need to look for statements that control what is going on and see how the program flows from one controlling statement to another, that is, we follow the *flow of control*, or **control flow**.  In this section we study those controlling statements.
+
+## 2.1 The IF statement
+
+We need our program to be able to make decisions based on user input or other conditions. To accomplish this, JavaScript has reserved words like `if` and `else` that allow us to build in that decision making capacity. Consider the following code:
+
+```javascript
+let birthYear = prompt("Give year of birth");
+birthYear = Number(birthYear);
+let age = 2015 - birthYear;
+if (age < 16) alert("You are too young to be kissed");
+else alert("You are more than 16 years old.");
+```
+
+The `if` statement in line 4 sets up a decision. If ``(age < 16)`` is true, then the `alert` that immediately follow is executed. Otherwise, the `alert` after the `else` statement is executed instead.  It's one or the other. Every `if` statement needs a **conditional** inside parens, something that is either true or false. If true, the code that follows runs, if not, then it runs the `else` code if there is an `else` present. The `else` is optional. Using the `if` statement allows the program to do different things depending on the user inputs. It makes the program just a tiny bit intelligent.
+
+> *A programmer puts two glasses on her bedside table before going to sleep. A full one, in case she gets thirsty, and an empty one, in case she doesn't.*
+>
+> *Anonymous*
+
+Please note that in line 1, `birthYear` is a string variable, but in the second line it turns into a number variable. This is type coercion. This is OK to do in JavaScript, because it is a *dynamically typed* language, but most other programming languages are not dynamically typed, so we will usually avoid having variables switch between different types in this course.
+
+Also note that we only use the reserved word `let` when we first introduce (*declare*) a variable name, never after that.
+
+In Repl.it, open **P>2.1C** and paste in the **birthYear** code. Use this code as a template. Make your own variations on the program that ask the user for input and respond in different ways depending on what input the user gives.
+
+<!----><a name="2.2"></a>
+## 2.2 The WHILE statement
+
+Another way to control programs is by using a while statement. Suppose in the previous program, we were concerned that the user might not put in a reasonable year of birth. We could use a `while` and an `if` statement combination to check and repeat until the user did enter a reasonable year.
+
+![ Figure 1.C Repl.it sample program](https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/fig2.2sample.jpg "birthYear program part 2")
+
+Carefully type the program into **P>2.2C Input Checker** in Repl.it (you can copy and past it). Pay attention to the colors. If they aren't similar to what is in the example, you've typed something wrong.  If you have a black background editor, you can switch to white for this example. Change all the 2015's to the current year. Run the program and respond that you were born in the future, then respond that you were born in 1776, then respond with your actual year of birth.
+
+The first new thing you encounter in this program is the `while` loop. It is called a *loop* because it keeps looping between the curly braces `{ . . . }` *while* its conditional statement is true. In this case, as long as the birth year the user enters is after 2015 (which is not likely) or before 1915 (which would make them over 100), the while loop will keep running. It will keep asking them what year they were born and keep converting their response to a number and putting it in the variable `birthYear`. As soon as they enter a reasonable year of birth during the last 100 years, the conditions will no longer be met and the while loop will not be executed. The program will move on to line 6 which subtracts their birth year from 2015 to get their current age.
+
+The curly braces are also new. In JavaScript if you want to group a set of statements together, you put them inside curly braces.  This is structure from `{` to `}` is called a **block**. You would typically use curly braces for `if` statements as well, as shown below:
+
+```javascript
+if (school == "lynden") {
+    alert("Your colors are green and yellow");
+    alert("Your mascot is a lion");
+}
+```
+Put the first `{` on the same line as the `if` statement as shown in this example and put the closing `}` on it's own line below the `if` statement. Everything between the braces should be indented. Indenting is very important for making your code readable and for helping you avoid errors. While the code will run without the indenting, it will be unacceptable, sort of like writing a letter without punctuation. The reason that braces were not needed in the original birthYear program is that there was only a single line of code between them. It is good practice, however, to ALWAYS use curly braces, even if you have only one line of code since you will often need to come back and add more lines in. So in this respect, the original birthYear program was an example of what *not* to do.
+
+Here's another example of a while loop with proper curly brace placement:
+
+```javascript
+let counter = 0;
+while (counter <= 5) {
+    console.log("Counter = " + counter);
+    counter = counter + 1;
+}
+```
+A variable called `counter` is set to 0. Then we begin a `while` loop which adds 1 to `counter` each time through the loop and outputs the value. Eventually `counter` becomes 6 at which point the loop condition is no longer true and the program is finished. Instead of using an `alert()`, in this case we are sending the output to the console.  `Console.log()` is a very useful function/method that we will use frequently throughout the course.
+
+It should be noted that if the condition of the `while` is never false, the loop will never stop. For instance in our example, if we had mistakenly written:
+
+`counter = counter - 1;`
+
+then `counter` would always be less than or equal to 5 and always true, so the loop would never end. This is called an *infinite loop*. Everybody writes one by accident sometime, but they should be avoided. If you create an infinite loop in Repl.it, you may be able break it by clicking the [stop] button, but more likely you will need to refresh the page, in which case you will lose your changes since your last save, so save often.
+
+<!----><a name="2.3"></a>
+## 2.3 The FOR loop
+
+The next kind of control statement we will consider is the for loop. The for loop is a convenient way to do what we did with the previous while loop: repeat the loop with a counter determining the number of times we do it. The syntax of the for loop is as follows, according to the [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/JavaScript):
+
+```js
+for ([initialization]; [condition]; [final-expression]) statement
+```
+
+Rather than give you a specific example of code, they've given you a general statement. As you learn to program, you'll frequently be looking up how different commands work so you'll need to get used to these general statements. But they also give you an explanation of terms and at least one example:
+
+-   The *initialization* is where we set our counter to its starting value. -   The *condition* is where we put a conditional statement that needs to stay true for as long is we want to loop to run. -   The *final-expression* is where we add whatever we want to the counter each time the loop is completed. -   The *statement* is any single statement or set of statements { . . . } to be carried out during each loop.
+
+```javascript
+for (let i = 0; i < 9; i++) {
+    console.log(i);
+    // more statements
+}
+```
+There are some new things here. Their counter is the variable i, which is a common variable name for a counter. i is short for **iterate** which means to change repeatedly. It starts out at zero and the loop will run so long as i is less than 9. Then comes `i++`? The `++` is called the increment operator and its effect is to add one to whatever variable it comes after, so it has the same effect as `i = i + 1;` This operator was developed around 1969 and is found in most computer languages related to the programming language C, like JavaScript. While we're on the topic, there is another short way of incrementing a counter:
+
+`counter += 1;`
+
+This statement also does the same thing as `counter = counter + 1;` and `counter ++;` The reason for these shortcuts is that incrementing counters is a common programming task. Note that statements like `i++` are falling out of favor and your code would be considered higher quality if you used the preferred `i += 1` form. Take some time to play with `-=` and `*=`, they work too.
+
+<img src="https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/nicetry.jpg" width="100%" alt="FoxTrot - Bill Amend -- Universal Press Syndicate" hover="FoxTrot - Bill Amend -- Universal Press Syndicate">
+
+<!----><a name="2.4"></a>
+## 2.4 The SWITCH/CASE statement
+
+The `switch` and `case` statements aren't used for looping, rather they work like a multi-branched `if` statement. Here is an example:
+
+```javascript
+let answer = prompt("What is your favorite color?");
+    switch (answer) {
+	case "red":
+	    alert("hearts, strawberries");
+	    break;
+	case "blue":
+	    alert("ocean, jeans");
+	    break;
+	case "green":
+	    alert("grass, go");
+	    break;
+	default:
+	    alert("nice color");
+    }
+```
+Paste it into **P>2.4 Switch Case: Favorite Day** in Repl.it. See if you can predict how it will work before you run it and then run it to see if you were right. Now put a couple of forward slashes // before each of the `break` commands. This will turn those lines into comments which the computer will ignore and it is a quick way to turn a line off and on without retyping the whole line. Now run it with the `break`'s commented out. You should now be able to describe what `break` does. Why don't we need a `break` in the `default` section? Always make sure you include a `default` case to handle unexpected situations without crashing your program. If you want, you can think of a `switch case` as a series of `if` statements with `default ` being like an `else` for all of the `if`'s.  Finally, note that `break` can be used in any loop to break out of it before it has finished.
+
+<!----><a name="2.5"></a>
+## 2.5 Commenting Revisited
+
+Of course commenting isn't just for turning lines of code on and off, commenting is primarily to explain your code. It is important that computer programs can be read and understood at least by other people who know the particular language being used. But as our programs get more complex, grasping what the program is doing and how it works can be difficult to see. Even if you are the one who writes a program, if you return to look at it 6 months later, you might forget how it worked. It would be helpful if we had some explanatory information along with the program so that if we later need to make modifications we will be less likely to mess up something important. This is what we use comments for. Here's an example program that we will put comments into:
+
+```javascript
+/* CS1 - Jeff Seely - 9/28/15 - 3 digit Armstrong Numbers
+ *  
+ * This program finds all 3 digit Armstrong numbers. 
+ * An Armstrong number, such as 153, is a number in which 
+ * if each digit is cubed their sum equals the number itself.
+ * 1 + 125 + 27 = 153
+*/
+
+let possible = 0,
+    cubedNum = 0,
+    d1 = 0,
+    d2 = 0,
+    d3 = 0;
+	
+console.log("The 3 digit Armstrong numbers are:");
+for (d1 = 1; d1 <= 9; d1+=1) {
+    for (d2 = 0; d2 <= 9; d2+=1) {
+        for (d3 = 0; d3 <= 9; d3+=1) {
+	    possible = d1*100+d2*10+d3;
+	    cubedNum = d1*d1*d1+d2*d2*d2+d3*d3*d3;
+	    if (possible==cubedNum) {
+		console.log(possible);
+	    }
+	}
+    }
+}
+console.log("done");
+```
+At the top of the program is a heading set off by /* and \*/ marks. This is one way to set off a comment. The computer ignores anything between /* and \*/ no matter how many lines it takes. This is the sort of heading that you will use in this course. Without the heading comment (and line 3 of the program), it would be very hard to know what this program was about. While the /\* . . . */ style comments can be used anywhere in a program, more commonly you will use the single line comments that you have already seen, where the comment line simply starts with //. Finally, you can add blank lines and indentations to make sections of the program more obvious.
+
+The following is what a better commented program would look like:
+
+```javascript
+/* CS1 - Jeff Seely - 7/13/15 3 digit Armstrong numbers.
+ * This program finds all 3 digit Armstrong numbers. 
+ * An Armstrong number, such as 153, is a number in which 
+ * if each digit is cubed their sum equals the number itself.
+ * 1 + 125 + 27 = 153 
+ * For 2 digit numbers, the digits would be squared 
+ * and for 4 digit numbers the digits would be taken 
+ * to the 4th power, etc.
+*/
+
+let possible = 0, //initialize variable for possible Armstrong number
+    cubedNum = 0, //and the digits of the number cubed
+    d1 = 0, d2 = 0, d3 = 0; //loop incrementers
+
+//set up for the results
+console.log("The 3 digit Armstrong numbers are:");
+
+//loops for the 100s, 10s and 1s places: d1,d2,d3 respectively so
+//that all three digit numbers are generated.
+for (d1 = 1; d1 <= 9; d1+=1) {
+    for (d2 = 0; d2 <= 9; d2+=1) {
+        for (d3 = 0; d3 <= 9; d3+=1) {
+            possible = (d1*100)+(d2*10)+d3;//calculate possible
+            cubedNum = (d1*d1*d1)+(d2*d2*d2)+(d3*d3*d3);//calc cubedNum
+            if (possible==cubedNum) {//see if they are the same
+                console.log(possible);//if so, display
+            }
+        }
+    }
+}
+console.log("done");
+```
+Clearly this fully commented version takes up more room and takes longer to write, but it contains useful information that helps the reader figure out what's going on. Even the addition of unnecessary parens in the lines calculating `possible` and `cubedNum` can make it easier for the reader to follow. But even though it takes up more space, the computer is ignoring all the extra and so the program runs just as quickly.
+
+What do you mean it needs comments!? If it was hard to write, it should be hard to understand. Why do you think we call it code???
+
+Another thing that you can do in comments is say where you got code from if you didn't write it from scratch. It is very common for programmers to copy and paste bits of code and one of the reasons this text is in digital format is so that you can easily do that. Trivial bits of code, say two or three lines, need not be attributed to a source, but if problems are solved and coded by someone else, you can't just copy and paste the code and call it yours. There are many law suits currently in the courts between software companies on specifically this matter. Plagiarism in programming languages is still plagiarism, and in most cases you can't use significant pieces of someone else's code without their permission even if you do credit them in your comments. In this course, if someone comes up with a nifty chunk of code that we want to make available to the class, we'll discuss it in class and agree to comment it if we use it. Otherwise, your code should be your own.
+
+<!----><a name="2.6"></a>
+## 2.6 Nesting
+
+The Armstrong number program uses a technique called **nested** `for` loops, that is, a `for` loop inside of another `for` loop. In this case, three `for` loops are nested.
+
+Can you sort out how the nested `for` loops work together to generate all the 3 digit numbers? Try *being* the computer and keep a list of the values of the variables as you go through each loop. Three nested loops is not very common but two loops are frequently nested. Notice that we needed to be able to cube each digit separately which lent itself to this structure. This was one possible algorithm, there are others.  An algorithm is a logical process for solving a problem.  Take a look at [Crash Course Computer Science episode 13](https://www.youtube.com/playlist?list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo) for additional background information.
+
+You can nest any sort of block you want and mix and match.  For instance you can put an `if` block inside a `for` block inside a `while` block.
+
+<!----><a name="2.7"></a>
+## 2.7 Simple Functions
+
+In JavaScript, a function is commonly used to group together a set of statements that accomplish a task. Once the function is written it can be used anywhere in the program that it is needed by just **calling** its name instead of rewriting the code every time. As with loops, we have parens and curly brackets.
+
+```javascript
+function square(x) {
+    return x * x;
+}
+console.log(square(12));
+
+>144
+```
+
+The function `square` has been declared by using the keyword `function`. This syntax is called a *function declaration* and the keyword `function` works like the keyword `let`. This is not the only syntax we can use to declare a function, but it is the one we will most commonly use. The syntax requires parens after the function name, and inside the parens is a variable that will contain the value that the function will work on. This variable in the parens is called a **parameter**. In this case, we are going to **pass** the value 12 into our function and it will take the 12, assign it to the variable x and then multiply x by x, which in this case is 12 times 12. The keyword `return` determines what the value of the function will become when the function is finished. In this case, the function will become x times x or 144 which is then assigned to the variable `square`. Functions can contain as many statements as needed within the curly brackets. If no value is given in the `return` statement, or if there is no `return` statement, the value of the function will become **undefined**. At whatever point the `return` keyword is encountered, the function is exited, so be careful where you put `return`.  
+
+Notice that no semicolon is required after the last curly brace of the function, but semicolons *are* required at the end of each statement inside the curly braces, that is, inside the block. We can now make the semicolon rule a little more precise. Semicolons are required at the end of every **executable** JavaScript statement. The function declaration doesn't actually get executed unless some statement in the program calls it (like line 4 in the previous program), so it is common to leave off the semicolon.
+
+The following example shows how we could use our `square()` function multiple times in one program:
+
+```javascript
+function square(x) { 
+    return x * x;
+}
+
+let len = prompt("Enter a length");
+len = Number(len);
+let areaSquare = square(len);
+let areaCircle = square(len)*3.14;
+alert("Area of square = " + areaSquare);
+alert("Area of circle = " + areaCircle);
+```
+
+By writing our function for squaring, we can use it to calculate the area of a square and the area of a circle without rewriting the code in the function. While the amount of code in our function is trivial, the idea is easy to grasp. If we had a 30 line block of code that we needed to use a dozen times in our program, writing and calling a function would be much more efficient.
+
+Functions can have more than one parameter and can contain loops or any of our other programming components, but they can only return one value. Next we look at a function that takes 2 parameters and calculates powers of a given base. Can you follow how it works? Remember from math class that powers are just repeated multiplication.
+
+```javascript
+function power(base, exponent) {
+    let result = 1;
+    for (let count = 0; count<exponent; count++)
+        result *= base;
+        return result;
+}
+console.log(power(2, 10));
+
+>1024
+```
+
+Remember it is good programming practice to declare all variables at the top of a program, and this true for within a function too.
+
+Try to keep in mind that a function always equals a value, or is undefined. Since a function equals a value, a function can be passed into another function as a parameter, just as if it was a value, which it is.
+
+<!----><a name="2.8"></a>
+## 2.8 Scope & Global Variables
+
+An important thing to note is that variables declared using a `let` statement within a function or block only exist within the function or block in which they are declared. For instance in the previous example, the variable x only exists inside the `square()` function. Add the line `alert(x);` at the end of the program. While the value of x should be whatever you typed into the prompt, JavaScript tells you it is undefined. On the other hand, if you put the `alert(x);` line inside the function, it gives you the information you expect. Why do you have to put the `alert(x)` before the `return`? The part of a program where a variable is available is called its *scope*. The scope of a variable declared inside a function is the function itself. It is not available outside the function. If you need multiple functions to have access to a single variable you can pass that variable around as a parameter. This is the preferred strategy, however sometimes it is simpler just to declare the variable outside of all of the functions. These sorts of variables that are available to all the functions are called *global* variables. It is common to put the names of these global variables in all caps. We will make use of global variables later when we do some simple animations.
+
+Using global variables is considered something to be avoided, particularly if more than one programmer is involved. Programs often get changed and have bits of code added from numerous sources. You can imagine that it would be easy for different programmers to use the same variable name and if those variables are globals it would likely break the code. The way we avoid global variables is by wrapping most of our final code inside a function statement. We control the scope of our variables by wrapping them in functions. Note that it is not the curly braces that control the scope, it is the function statement itself. The curly braces inside a `for` or `while` loop do not restrict the scope of a variable declared inside them.
+
+Another thing to know about global variables: if you declare a variable without using `let`, that is, if you just start using a variable without formally declaring it, JavaScript makes it a global variable. This is true even inside of a function. Since this would produce very unpredictable behavior, you should ALWAYS make sure to declare variables with a `let` statement.
+
+Finally you should be aware that variables declared with `var` only have function scope, not block scope like those declared with `let`.  They can also be global variables the same as with `let` declared variables.
+
+Another interesting property of functions is that they can call themselves. This is called *recursion*. For instance, the following function calculates the factorial of the number passed as its parameter.
+
+```javascript
+function factorial(num) {
+    if (num == 0) return 1;
+    else return (num * factorial(num - 1));
+}
+let result = factorial(6);
+console.log(result);
+
+>720
+```
+
+While recursion is a useful and common technique, there are some potential memory problems with its current implementation in JavaScript so we won't be working with it further. These problems are likely to be addressed in future versions of JavaScript.
+
+<!----><a name="2.9"></a>
+## 2.9 Methods
+
+In JavaScript, *methods* and *functions* are very similar, in fact, methods *are* functions, just a special sort of function. While they both have attached parens, the most apparent difference is that methods have a dot in the name as in the `console.log()` method. We have already been using several methods: `console.log()`, `window.alert()` and `window.prompt()` although the window part hasn't been necessary for our previous uses. The words to the left of the dot give us additional information about what sort of method it is and are often necessary for the proper function of the method. The `log()` method belongs to something called the console object and the `alert()` and `prompt()` methods belong to something called the window object. Objects will be one of the topics of Chapter 3.  The thing that distinguishes methods from regular functions is that methods are functions connected to objects.
+
+There are many built in methods in JavaScript, in contrast to relatively few built in functions. Functions are mostly custom written by programmers whereas most programmers make considerable use of built in methods. In our exploration of built in methods we will begin with math methods.
+
+### *• Math Methods*
+
+It would be a pain if we needed to create all the normal math functions like powers, roots and trig functions by writing our own functions using only arithmetic operators. Fortunately there is a nice set of math methods that we can call whenever we need them. Below is a sample of some of the most commonly used math methods. Many more are available. If you need something that isn't listed, look it up and it will probably be there.
+
+**Math.abs(x)** Returns the absolute value of a number.
+
+**Math.ceil(x)** Returns the smallest integer greater than or equal to a number, that is, it rounds up.
+
+**Math.cos(x)** Returns the cosine of an angle x given in radians.  To use angles in degrees (d), you would need to convert to radians first: $radians = \frac{\pi \times degrees}{180}$
+
+**Math.floor(x)** Returns the largest integer less than or equal to a number, that is, it truncates anything to the right of the decimal point.
+
+**Math.pow(x, y)** Returns base x to the power y, or x^y^.
+
+**Math.random()** Returns a pseudo-random number from 0 to 1, but not including 1.
+
+**Math.round(x)** Returns the value of a number rounded to the nearest integer.
+
+**Math.sqrt(x)** Returns the positive square root of a number.
+
+The **Math.random()** method is often used in games to simulate dice, spinners, cards or any other random element of a game. Let's start with flipping a coin.
+
+```javascript
+function flip() {
+    let coin = "idle";
+    if (Math.random() > 0.5) coin = "heads";
+    else coin = "tails";
+return coin;
+}
+
+console.log(flip());
+```
+
+Since the `Math.random()` method generates numbers between 0 and 1 and we need to split them into two equal groups, we can just check to see if they are greater or less than the half way point of 0.5. When we call the `flip()` function, coin is returned to us with a value of heads or tails. In this case, we don't need an argument since we don't need any information from the user for the function to work.
+
+![XKCD #221](https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/xkcd.png "XKCD #221")
+
+Try out some of the other Math methods in your editor to see how they work. Make sure you capitalize the M in Math.
+
+### *• String Methods and ASCII*
+
+Another set of built in methods are available for working with strings. A sampling of some of the many methods available are listed below.  
+
+Some of the methods involve Unicode so here's some background on that.  As you recall, each letter corresponds to number, which for the computer is actually binary.  The ASCII code assigns each letter a 7 bit binary value, for instance, "a" is 1100001 (97 decimal) and "b" is 1100010 (98 decimal), etc.  The ASCII code references more than just small letters, there are also capitals, numerals and other symbols that you might find on a keyboard.  But since the binary representation is only a 7 bit binary, only 0 through 127 (1111111 binary) can be represented.  In order to accommodate more characters, especially for other languages, a new system was adopted called Unicode.  It uses a minimum of 8 bits for each character (you may have seen UTF-8 in an HTML head) but can be as many as 32-bits.  This gives an enormous number of options.  Note that the original ASCII encoding was retained for those characters in Unicode7
+
+**charAt( *index* )** returns the character at a specified index. The index of the first letter is 0, the second letter is 1, etc.
+
+**charCodeAt( *index* )** returns the Unicode value of the character at the specified index.
+
+**String.fromCharCode( *value* )** returns a the Unicode letter (as a string) for the given Unicode value.  You must include String with a capital S in order to turn the number into a string.
+
+**indexOf( *character* )** returns the index of the first occurrence of the specified character, or -1 if it doesn't occur.
+
+**replace( *searchFor, replaceWith* )** searches for something in the string and replaces it with specified text.
+
+**slice( *startIndex, endIndex* )** returns a string from the first index up to but not including the second index.
+
+**toUpperCase()** returns the string in upper case.
+
+Some of the methods like `toUpperCase()` have no argument (the thing in the parens, similar to parameter), while others like `charAt()` require one argument, and others like `slice()` require two. Next is some example code to demonstrate the syntax:
+
+```javascript
+let myString = "JavaScript";
+console.log(myString.toUpperCase());
+console.log(myString.charAt(2));
+console.log(myString.slice(4,9));
+
+>"JAVASCRIPT"
+>"v"
+>"Scrip"
+```
+
+Try the other string methods in your editor to see how they work. You may need to look some up.
+
+### *• Number Methods*
+
+In addition to the Math methods, there are also a few Number methods that take numbers as parameters and do something with them. For instance the `isNaN()` method returns true if the parameter **is** **N**ot **a** **N**umber. The `toString()` method turns a number into a string. You should take a look at a list of number methods so you have an idea what is available. They come in handy from time to time.  A handy method for formatting numbers is `toFixed(x)` where x is the number of places to the right of the decimal point.
+
+### *• String and Math Properties*
+
+Along with methods, we have properties. Properties are different from functions and methods in that they don't act on anything, they don't process data, rather they simply report on something that already exists. Properties don't have arguments. For instance we have the string property `.length` and Math properties `.PI` and `.E` with syntax as follows:
+
+```javascript
+let myString = "JavaScript";
+console.log(myString.length);
+console.log(Math.PI);
+console.log(Math.E);
+
+>10
+>3.141592653589793
+>2.718281828459045
+```
+
+Try to keep in mind that JavaScript is *case sensitive*, that is `Math.PI` is not the same as `math.pi`. The first way works, the second way produces an error. As we will see in the next chapter, other languages, like HTML, are not case sensitive. These differences just mean you have to pay attention.
+
+One of the topics covered in the programs, but not the text is encryption. For additional background on this important topic, take a look at [Crash Course Computer Science episode 33 and 31](https://www.youtube.com/playlist?list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo)
