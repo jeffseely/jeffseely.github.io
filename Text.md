@@ -40,7 +40,7 @@ Espruino JavaScript and Pico documentation on the [Espruino website](http://www.
 
 Joshua Davies has a series of helpful posts on the Chrome developer tools and debugging [here](http://commandlinefanatic.com/cgi-bin/showarticle.cgi?article=art033).
 
-[Repl.it](https://repl.it/): is an online programming environment we use for beginning programming and for submitting assignments. It is not browser specific and there is nothing to install.
+[Replit.com](https://Replit.com/): is an online programming environment we use for beginning programming and for submitting assignments. It is not browser specific and there is nothing to install.
 
 [Espruino Web IDE](https://chrome.google.com/webstore/detail/espruino-web-ide/bleoifhkdalbjfbobjackfdifdneehpo) (although it will not work without an attached microcontroller and also requires the [Chrome browser](https://www.google.com/chrome/)).
 
@@ -88,19 +88,19 @@ A computer program is a set of instructions that the computer must follow.  With
 
 People write programs using vocabulary (commands) and grammar (syntax) that makes sense to people.  Just like there are different human languages in the world, there are different computer languages that can be used to write programs, each having their own commands and syntax.  In this course, we will study a language called JavaScript, also known as ECMAScript.  
 
-Our computers though, don't know JavaScript or any other human language.  Computers really are sets millions of carefully arranged [switches (transistors)](http://www.explainthatstuff.com/howtransistorswork.html).  Switches can be either on or off. One or more switches can be connected to other switches to turn them on or off.  By creatively configuring these switches, computer scientists have found ways of getting them to do mathematical calculations like adding.  Furthermore, they have found ways of getting them to do logical calculations, such as `IF A > B, then do C`.  
+Our computers though, don't know JavaScript or any other human language.  Computers really are sets millions of carefully arranged [switches (transistors)](http://www.explainthatstuff.com/howtransistorswork.html).  Switches can be either on or off. One or more switches can be connected to other switches to turn them on or off.  By creatively configuring these switches, computer scientists have found ways of getting them to do mathematical calculations like adding.  Furthermore, they have found ways of getting them to do logical calculations, such as `IF A > B, then do C`.  By sequencing logical and mathematical instructions, computer scientists have created programs that can do amazing things.
 
-If you are interested in the guts of a computer, that is, how it physically works, watch the [Crash Course Computer Science series](https://www.youtube.com/playlist?list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo) episodes, especially 1 thru 8.  They are only about 10 minutes each so you could easily binge them on a weekend.  Specific episodes will be noted throughout this text.  While they cover topics not required for this course, they do provide useful background that can help you better understand what is going on.
+If you are interested in the guts of a computer - how it physically works, watch the [Crash Course Computer Science series](https://www.youtube.com/playlist?list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo) episodes, especially 1 thru 8.  They are only about 10 minutes each so you could easily binge them on a weekend.  Specific episodes will be noted throughout this text.  While they cover topics not required for this course, they do provide useful background that can help you better understand what is going on.
 
 > *In one sense a computer is only the transistors and the connections between them, but describing it like this loses something in the process. You can't really understand the computer unless you understand its functional relationships, what it's trying to accomplish, and the purpose that it serves to its human creators.*
 >
 > *--Bill Newsome*
 
-Using the building blocks of mathematical and logical calculations, computer scientists have found ways to get switches to do amazing things, but since it all comes down to switches being on or off, we have to program computers in on's and off's.  We often call these on's and off's 1 and 0 and refer to them as [**binary**](https://learn.sparkfun.com/tutorials/binary) language.
+Using the building blocks of mathematical and logical instructions, computer scientists have found ways to get switches to do amazing things, but since it all comes down to switches being on or off, we have to program computers in on's and off's.  We often call these on's and off's 1 and 0 and refer to them as [**binary**](https://learn.sparkfun.com/tutorials/binary) code.
 
 ![Translating a High Level Language Into Binary](https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/languagelevels.png "Translating to Binary")
 
-We will write programs in JavaScript using English words and mathematical symbols that we are familiar with. JavaScript is called a high level language since it is far removed from the actual 1's and 0's. Our JavaScript program will be handed off to another program that turns it into binary for the computer to actually execute.  In JavaScript, this conversion program is called an [*interpreter*](http://voidcanvas.com/is-javascript-really-interpreted-or-compiled-language/).  In other languages, it may be called a *compiler*, as in the diagram above.  For more information on this whole process, there's a wide ranging but very interesting article on coding/programming by Paul Ford [here](http://www.bloomberg.com/graphics/2015-paul-ford-what-is-code/#grabbag). Chapter 2 of the article is the most relevant part.  You can also watch [Crash Course Computer Science episode 11](https://www.youtube.com/playlist?list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo).
+We will write programs in JavaScript using English words and mathematical symbols that we are familiar with. JavaScript is called a high level language since it is far removed from the actual 1's and 0's that computers run on. Our JavaScript program will be handed off to another program that turns it into binary for the computer to actually execute.  In JavaScript, this conversion program is called an [*interpreter*](http://voidcanvas.com/is-javascript-really-interpreted-or-compiled-language/).  In other languages, it may be called a *compiler*, as in the diagram above.  For more information on this whole process, there's a wide ranging but very interesting article on coding/programming by Paul Ford [here](http://www.bloomberg.com/graphics/2015-paul-ford-what-is-code/#grabbag). Chapter 2 of the article is the most relevant part.  You can also watch [Crash Course Computer Science episode 11](https://www.youtube.com/playlist?list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo).
 
 <img src="https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/dilbert1.png" width="100%" alt="Dilbert - Scott Adams - Universal Features Syndicate, Inc. 1992" hover="Dilbert - Scott Adams - Universal Features Syndicate, Inc. 1992">
 
@@ -138,15 +138,15 @@ Take a look at [Crash Course Computer Science episode 4](https://www.youtube.com
 <!----><a name="1.2"></a>
 ## 1.2 Writing a Computer Program
 
-> **TARGET**: Be able to use the Repl.it IDE to write and run simple JavaScript programs.
+> **TARGET**: Be able to use the Espruino WebIDE to write and run simple JavaScript programs.
 
-Follow your teacher's instructions and login to Repl.it and enter the CS1 JavaScript course and choose program **P>1.2C Hello World**. Repl.it is a software environment that allows you write programs in JavaScript.  It then turns your program into something a computer can understand, runs the code and gives the results back to you. The REPL in the name Repl.it stands for Read Evaluate Print Loop. REPL's are simple programming tools that programmers use, and while Repl.it started out as being fairly simple, it has developed into an integrated development environment (IDE).  It is quite possible to write programs with just a text editor, but REPL's and IDE's are very useful.
+Follow your teacher's instructions to install the Espruino WebIDE and connect your Espruino Pico.  The Espruino WebIDE is a software environment that allows you write programs in JavaScript.  It then turns your program into something a computer can understand, sends to the code to the Pico and gives the results back to you. The REPL in the name Replit.com stands for Read Evaluate Print Loop. REPL's are simple programming tools that programmers use, and while Replit.com started out as being fairly simple, it has developed into an integrated development environment (IDE).  It is quite possible to write programs with just a text editor, but REPL's and IDE's are very useful.
 
-Repl.it will give you 3 windows.  On the right you will find the assignment instructions from your teacher. The top left window is the *editor* where you write your program, and the bottom left window is called the *console* and it is where you can get information back from your program run.
+The WIDE will give you 3 windows.  On the right you will find the assignment instructions from your teacher. The top left window is the *editor* where you write your program, and the bottom left window is called the *console* and it is where you can get information back from your program run.
 
-<img src="https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/replit_helloworld.jpg" width="100%" alt="Repl.it window">
+<img src="https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/replit_helloworld.jpg" width="100%" alt="Replit.com window">
 
-The 3 vertical dots (ellipses) menu in the upper left corner gives you choices mostly about how your screen looks. The green submit button at the upper right is what you press when your program is working properly and you are ready to turn it in.
+The 3 line hamburger menu in the upper left corner gives you choices mostly about how your screen looks. The green submit button at the upper right is what you press when your program is working properly and you are ready to turn it in.
 
 It is traditional for a first program to be something called "Hello World". Type the following statement in the console (bottom left).
 
@@ -154,7 +154,7 @@ It is traditional for a first program to be something called "Hello World". Type
 "Hello" + " " + "World";
 ```
 
-This is a program. It doesn't do much, but it's a start. In this book, code examples like `"Hello" + " " + "World";` will be set in a monospaced font similar to what is used in Repl.it and also placed in a light grey box. It will make the examples easier to follow and it will make them easier to copy and paste.
+This is a program. It doesn't do much, but it's a start. In this book, code examples like `"Hello" + " " + "World";` will be set in a monospaced font similar to what is used in Replit.com and also placed in a light grey box. It will make the examples easier to follow and it will make them easier to copy and paste.
 
 Also note that every statement in JavaScript should end in a *semicolon*. Although the JavaScript interpreter is smart enough to add in missing semicolons for you when it is reading what you have written, it doesn't always do it the way you might expect, so you should always put semicolons at the end of each statement. Later in the course you will see that some statements may run longer than one line. The semicolon goes at the end of the *entire* statement. 
 
@@ -179,7 +179,13 @@ Only line 2 of the program will show up in the console, but not the comment at t
 <!----><a name="1.3"></a>
 ## 1.3 Variables
 
-> **Target**: Be able to create proper variables, request user input and provide output to the user. 
+> **Target**: Be able to use the Replit IDE to create proper variables, request user input and provide output to the user. 
+
+Follow your teacher's instructions to log in to Replit.com.  The REPL in the name Replit.com stands for Read Evaluate Print Loop. REPL's are simple programming tools that programmers use, and while Replit.com started out as being fairly simple, it has developed into an integrated development environment (IDE).  It is quite possible to write programs with just a text editor, but REPL's and IDE's are very useful.
+
+Replit.com has an IDE similar to the Espruino WebIDE.  Complete 
+
+
 
 To this point we've been poking around at a computer as though it is some sort of calculator with a full [QWERTY](http://gizmodo.com/why-we-still-use-qwerty-keyboards-even-though-theyre-a-1643855077) keyboard and a big screen. Not too useful. In order to write useful programs, we need **variables**. Variables in computer programs are pretty much like variables in algebra. They "contain" values and those values can change. It is perhaps a better metaphor in computer science to say that the variable *points to* a value rather than to say it *contains* a value, but for an introductory programming course, "contains" works just fine and it keeps it consistent with your math class concept of variables.
 
@@ -187,7 +193,7 @@ In JavaScript programming there are a variety of ways to create variables. This 
 
 `let firstNumber = 7;`
 
-`let` is a **reserved** word that JavaScript uses to indicate that the word after it is a variable name. Don't try to use `let` for anything else. It is a reserved word and JavaScript will complain if you do. Look at the list of reserved words [here](https://www.w3schools.com/Js/js_reserved.asp). The "=" puts the number 7 into the variable `firstNumber`. If you don't assign a value to the variable, JavaScript will assign the value `undefined`. It is much better to assign an initial value because it tells us what type of variable you intend it to be and it helps us find errors as we read through the program. Let's take it a little farther with the four line program below. Go to **P>1.3AB Full Name** in Repl.it and paste the first 4 lines below into the editor.
+`let` is a **reserved** word that JavaScript uses to indicate that the word after it is a variable name. Don't try to use `let` for anything else. It is a reserved word and JavaScript will complain if you do. Look at the list of reserved words [here](https://www.w3schools.com/Js/js_reserved.asp). The "=" puts the number 7 into the variable `firstNumber`. If you don't assign a value to the variable, JavaScript will assign the value `undefined`. It is much better to assign an initial value because it tells us what type of variable you intend it to be and it helps us find errors as we read through the program. Let's take it a little farther with the four line program below. Go to **P>1.3AB Full Name** in Replit.com and paste the first 4 lines below into the editor.
 
 ```javascript
 let firstNumber = 7;
@@ -225,16 +231,16 @@ We've made some progress, but there are still some important pieces needed to ma
 >
 > *--Charles Babbage (1864)*
 
-Copy and paste the following in the Repl.it program window for **P>1.4C Next Age**:
+Copy and paste the following in the Replit.com program window for **P>1.4C Next Age**:
 
 ```javascript
 let age = prompt("What is your age?");
 let nextAge = 50 + age;
 alert("In fifty years you'll be " + nextAge);
 ```
-Notice that the colors are not the same between this text and Repl.it. There is no standard color scheme for *syntax highlighting*, you just have to get used to however your environment does it, unless you are allowed to personalize it.  At present, Repl.it does not let you choose the syntax highlighting colors. Run the program, but first, try to predict what it will do.
+Notice that the colors are not the same between this text and Replit.com. There is no standard color scheme for *syntax highlighting*, you just have to get used to however your environment does it, unless you are allowed to personalize it.  At present, Replit.com does not let you choose the syntax highlighting colors. Run the program, but first, try to predict what it will do.
 
-Repl.it shows you a dialog box asking for your age. If you respond, the program will continue and tell you that in 50 years you will be `nextAge`. But it will say you are over 5000 years old! What is going on here?
+Replit.com shows you a dialog box asking for your age. If you respond, the program will continue and tell you that in 50 years you will be `nextAge`. But it will say you are over 5000 years old! What is going on here?
 
 We have some new commands that I'm going to call **functions** (although it would be more precise to call them **methods**) The `prompt()` function displays a box for the user to type something into and then takes what they type and sticks it into the variable age. The `alert()` function also displays a box with info, but doesn't ask any questions.
 
@@ -258,9 +264,9 @@ let age = 10,
 ```
 While I could have put all three lines on a single line, notice how the *indenting* improves readability. There are often multiple ways to do something. The goal of our various decisions is readability and error avoidance. We may not choose the most convenient way but we should always choose the most readable way. Using descriptive variable names, declaring them at the beginning of a program and assigning initial values has over decades of programming proven to be the best way to do things.
 
-Repl.it provide some nice editing and formatting features.  If you right click on a selected section of code, you have the option to format it, that is, it will automatically indent correctly.  This is very helpful when trying to find errors.  If you right click a variable name, you have the option of changing all of them.  There are many other helpful options as well in the command palette.
+Replit.com provide some nice editing and formatting features.  If you right click on a selected section of code, you have the option to format it, that is, it will automatically indent correctly.  This is very helpful when trying to find errors.  If you right click a variable name, you have the option of changing all of them.  There are many other helpful options as well in the command palette.
 
-Finally, please understand that while we are using the Repl.it environment to learn programming, if we were to use the same code on a webpage, the web browser would also produce prompt and alert boxes for input and output.  The code we learn in Repl.it will be useful in more realistic situations like web pages.
+Finally, please understand that while we are using the Replit.com environment to learn programming, if we were to use the same code on a webpage, the web browser would also produce prompt and alert boxes for input and output.  The code we learn in Replit.com will be useful in more realistic situations like web pages.
 
 <!----><a name="1.5"></a>
 ## 1.5 Types of Values & Operators
@@ -307,7 +313,7 @@ will produce the value false. The symbols `<` and `>` are called **logical** ope
 
 `"Adam" < "Eve";`
 
-will produce the value true. Why? Experiment in Repl.it to see if your reasoning is correct. There are other logical operators such as >= which is "greater than or equal to", and != which is "not equal to", and == which is "equal to". The reason for the double equal sign is that the single equal sign is already used as the assignment operator.  In many cases the triple equal sign is preferred since it checks not only value but type. Try making some true or false statements with those operators.
+will produce the value true. Why? Experiment in Replit.com to see if your reasoning is correct. There are other logical operators such as >= which is "greater than or equal to", and != which is "not equal to", and == which is "equal to". The reason for the double equal sign is that the single equal sign is already used as the assignment operator.  In many cases the triple equal sign is preferred since it checks not only value but type. Try making some true or false statements with those operators.
 
 There are also some operations that can be applied to the Boolean values, true and false. The operations are AND, OR and NOT and their operator symbols are &&, || and ! respectively. According to Boolean logic, a statement is only true if it is entirely true. For instance,
 
@@ -361,16 +367,16 @@ Please note that in line 1, `birthYear` is a string variable, but in the second 
 
 Also note that we only use the reserved word `let` when we first introduce (*declare*) a variable name, never after that.
 
-In Repl.it, open **P>2.1C** and paste in the **birthYear** code. Use this code as a template. Make your own variations on the program that ask the user for input and respond in different ways depending on what input the user gives.
+In Replit.com, open **P>2.1C** and paste in the **birthYear** code. Use this code as a template. Make your own variations on the program that ask the user for input and respond in different ways depending on what input the user gives.
 
 <!----><a name="2.2"></a>
 ## 2.2 The WHILE statement
 
 Another way to control programs is by using a while statement. Suppose in the previous program, we were concerned that the user might not put in a reasonable year of birth. We could use a `while` and an `if` statement combination to check and repeat until the user did enter a reasonable year.
 
-![ Figure 1.C Repl.it sample program](https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/fig2.2sample.jpg "birthYear program part 2")
+![ Figure 1.C Replit.com sample program](https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/fig2.2sample.jpg "birthYear program part 2")
 
-Carefully type the program into **P>2.2C Input Checker** in Repl.it (you can copy and past it). Pay attention to the colors. If they aren't similar to what is in the example, you've typed something wrong.  If you have a black background editor, you can switch to white for this example. Change all the 2015's to the current year. Run the program and respond that you were born in the future, then respond that you were born in 1776, then respond with your actual year of birth.
+Carefully type the program into **P>2.2C Input Checker** in Replit.com (you can copy and past it). Pay attention to the colors. If they aren't similar to what is in the example, you've typed something wrong.  If you have a black background editor, you can switch to white for this example. Change all the 2015's to the current year. Run the program and respond that you were born in the future, then respond that you were born in 1776, then respond with your actual year of birth.
 
 The first new thing you encounter in this program is the `while` loop. It is called a *loop* because it keeps looping between the curly braces `{ . . . }` *while* its conditional statement is true. In this case, as long as the birth year the user enters is after 2015 (which is not likely) or before 1915 (which would make them over 100), the while loop will keep running. It will keep asking them what year they were born and keep converting their response to a number and putting it in the variable `birthYear`. As soon as they enter a reasonable year of birth during the last 100 years, the conditions will no longer be met and the while loop will not be executed. The program will move on to line 6 which subtracts their birth year from 2015 to get their current age.
 
@@ -399,7 +405,7 @@ It should be noted that if the condition of the `while` is never false, the loop
 
 `counter = counter - 1;`
 
-then `counter` would always be less than or equal to 5 and always true, so the loop would never end. This is called an *infinite loop*. Everybody writes one by accident sometime, but they should be avoided. If you create an infinite loop in Repl.it, you may be able break it by clicking the [stop] button, but more likely you will need to refresh the page, in which case you will lose your changes since your last save, so save often.
+then `counter` would always be less than or equal to 5 and always true, so the loop would never end. This is called an *infinite loop*. Everybody writes one by accident sometime, but they should be avoided. If you create an infinite loop in Replit.com, you may be able break it by clicking the [stop] button, but more likely you will need to refresh the page, in which case you will lose your changes since your last save, so save often.
 
 <!----><a name="2.3"></a>
 ## 2.3 The FOR loop
@@ -449,7 +455,7 @@ let answer = prompt("What is your favorite color?");
 	    alert("nice color");
     }
 ```
-Paste it into **P>2.4 Switch Case: Favorite Day** in Repl.it. See if you can predict how it will work before you run it and then run it to see if you were right. Now put a couple of forward slashes // before each of the `break` commands. This will turn those lines into comments which the computer will ignore and it is a quick way to turn a line off and on without retyping the whole line. Now run it with the `break`'s commented out. You should now be able to describe what `break` does. Why don't we need a `break` in the `default` section? Always make sure you include a `default` case to handle unexpected situations without crashing your program. If you want, you can think of a `switch case` as a series of `if` statements with `default ` being like an `else` for all of the `if`'s.  Finally, note that `break` can be used in any loop to break out of it before it has finished.
+Paste it into **P>2.4 Switch Case: Favorite Day** in Replit.com. See if you can predict how it will work before you run it and then run it to see if you were right. Now put a couple of forward slashes // before each of the `break` commands. This will turn those lines into comments which the computer will ignore and it is a quick way to turn a line off and on without retyping the whole line. Now run it with the `break`'s commented out. You should now be able to describe what `break` does. Why don't we need a `break` in the `default` section? Always make sure you include a `default` case to handle unexpected situations without crashing your program. If you want, you can think of a `switch case` as a series of `if` statements with `default ` being like an `else` for all of the `if`'s.  Finally, note that `break` can be used in any loop to break out of it before it has finished.
 
 <!----><a name="2.5"></a>
 ## 2.5 Commenting Revisited
@@ -1374,7 +1380,7 @@ The `E.clip()` method is not standard JavaScript. **E** in this situation stands
 
 ### *• HTML*
 
-You have seen that JavaScript can be used to program microcontrollers and can also be used within a general purpose environment like Repl.it.  Now we will use it to create code that browsers read in order to layout web pages. Within that code, we will use JavaScript to add logic and interactions to our webpages.  We are not primarily interested in designing and decorating webpages -- that is another course -- instead we will use the webpage as our user interface: the way we get information from and to the user of our JavaScript program. Webpages will be our I/O method as we develop a better understanding of the JavaScript language.
+You have seen that JavaScript can be used to program microcontrollers and can also be used within a general purpose environment like Replit.com.  Now we will use it to create code that browsers read in order to layout web pages. Within that code, we will use JavaScript to add logic and interactions to our webpages.  We are not primarily interested in designing and decorating webpages -- that is another course -- instead we will use the webpage as our user interface: the way we get information from and to the user of our JavaScript program. Webpages will be our I/O method as we develop a better understanding of the JavaScript language.
 
 You may have worked with webpages before and know that they are described in a language called **H**yper**T**ext **M**arkup **L**anguage (HTML). There are other [markup languages](http://www.linfo.org/markup_language.html), so called because there are informational *marks*, called **tags**, interspersed throughout the data that describe what is to be done with the data, sort of like what a human editor would do for an author that sent them a manuscript: the editor would *markup* the manuscript with instructions about changes that needed to take place.  The special thing about HTML is the HT, or hyper text idea.  Being able to click on text in a document and have it take you to a different document related to that text on a completely different computer is what was meant by hypertext.  While that may seem routine to you today, it was pretty revolutionary in 1991 when it started going public.  The other place you run into hypertext routinely is the HTTP part of a URL address like http://lyndenmath.org.  The **H**yper**T**ext **T**ransfer **P**rotocol is the set of rules that allow computers to communicate happily on the internet.  Both of these were initially developed by Tim Berners-Lee while working at CERN in the early 1990's.  For additional background information on the internet and the World Wide Web, take a look at [Crash Course Computer Science episodes 28 -30](https://www.youtube.com/playlist?list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo).
 
@@ -1382,7 +1388,7 @@ Like most other markup languages, HTML has no way of implementing algorithms wit
 
 HTML, as with some other markup languages, uses tags that are enclosed in angle brackets like `<head>` and `</head>`. The tags themselves enclose chunks of text or other information and the tags tell the software that is reading the document what the author intended to be done with the enclosed text. Generally tags come in pairs: a start tag, like `<head>` and an end tag, like `</head>`. The only difference is the forward slash in the end tag. Between the tags is the data or content for, in this case, the head. That's all there is to it. Of course there are a lot of different tags to indicate a lot of different things like `<title>`, `<p>` for paragraph, `<button>`, `<form>`, `<link>`, `<table>`, etc. but most of them aren't too hard to figure out and you can do a lot with just a few tags. We especially like the `<script>` tag because that is where we put our JavaScript programs. By inserting a program into the HTML, we can give the document the capacity to do something more than just sit there.
 
-### *• Boilerplate in Repl.it* 
+### *• Boilerplate in Replit.com* 
 
 In nearly every webpage there are certain tags that are always the same. We often refer to these tags as *boilerplate*. We use it, we don't pay much attention to it, but it needs to be there in order for the HTML to be processed properly by the browser.  It's kind of like putting your name and date on an assignment that you turn in to a teacher.  The following code is standard HTML boilerplate.
 
@@ -1408,7 +1414,7 @@ The next tag is more typical. The `<head></head>` tag pair is intended to contai
 
 Actually the `<head>` section and anything inside it, like the metadata and `<title>`, is optional and you may see code examples that leave out the head entirely. They will run just fine assuming everything else is correct. Whatever you put between the `<title><title>` tags is displayed at the top of the page in the browser, so it is nice to fill that in.
 
-The `<body></body>` pair will enclose whatever we want to display on the page. Go to Repl.it and then to **P4.1C**.  There you will find boilerplate very similar to the example above.  Put "Hello World2" between the title tags instead of "repl.it" (no quotes needed) and add "This is my second hello world program" between the body tags (no quotes) and click the run button.  The result tab on the right side of the screen displays what the web page would look like.  The title isn't displayed there but if we used a browser to read the file directly it would be shown.  You can open your page directly in a browser by clicking the arrow box ![Open in new tab](https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/opennewtabbutton.png) to the right of the URL, or you can paste the URL into another browser.  Your Hello World2 webpage is actually live on the internet. Anyone can access it by typing the URL at the top of the page.
+The `<body></body>` pair will enclose whatever we want to display on the page. Go to Replit.com and then to **P4.1C**.  There you will find boilerplate very similar to the example above.  Put "Hello World2" between the title tags instead of "Replit.com" (no quotes needed) and add "This is my second hello world program" between the body tags (no quotes) and click the run button.  The result tab on the right side of the screen displays what the web page would look like.  The title isn't displayed there but if we used a browser to read the file directly it would be shown.  You can open your page directly in a browser by clicking the arrow box ![Open in new tab](https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/opennewtabbutton.png) to the right of the URL, or you can paste the URL into another browser.  Your Hello World2 webpage is actually live on the internet. Anyone can access it by typing the URL at the top of the page.
 
 Notice the script tags in the body section.  They say `src="index.js"`, which means whatever is in the file index.js is the JavaScript program that is supposed to be carried out.  You can see an index.js file in the left *Files* column.  Click that tab and type in the JavaScript code `console.log("This works");`. Now click run and then check the console tab.  For beginning programs, it is often more convenient to keep the JavaScript on the same page as the HTML.  We can do that by eliminating `src="index.js"` in the script tag and then we can type our JavaScript between the script tags.  Do that and type `console.log("This also works");` between the tags.  Run it and check the console tab.  This will be our standard way of putting JavaScript into web pages rather than using a separate .js file.
 
@@ -1455,7 +1461,7 @@ This is a single long line of code, but you can split it up on separate lines if
 </body>
 ```
 
-There are so many different properties available within the style attribute that the style information for a webpage or website is often stored away in a separate file called a **Cascading Style Sheet** or [CSS](http://www.w3schools.com/css/) (that's the index.css file you see in Repl.it P4.1C), or in a separate `<style></style>` section of the code for the page. That, however, is the topic of another course. In this course will typically just set styles **inline** as shown in the examples. If you want to change the look of whatever a tag describes, you can probably do it with the style attribute, but there are so many options, we can't cover them all here so. Just look up what you want to do in a reference. W3Schools.com has a nice CSS reference that you should browse a bit in order to become familiar with the options.
+There are so many different properties available within the style attribute that the style information for a webpage or website is often stored away in a separate file called a **Cascading Style Sheet** or [CSS](http://www.w3schools.com/css/) (that's the index.css file you see in Replit.com P4.1C), or in a separate `<style></style>` section of the code for the page. That, however, is the topic of another course. In this course will typically just set styles **inline** as shown in the examples. If you want to change the look of whatever a tag describes, you can probably do it with the style attribute, but there are so many options, we can't cover them all here so. Just look up what you want to do in a reference. W3Schools.com has a nice CSS reference that you should browse a bit in order to become familiar with the options.
 
 <!----><a name="4.2"></a>
 4.2 HTML Events & JavaScript
@@ -1541,7 +1547,7 @@ When we use `let` in the first line, we are really just assigning a name to some
 
 The `jeffObj` object has 4 properties: a boolean property called `living`, and numeric property called `age`, a string property called `gender` and a method called `lifeleft` that is a function which subtracts `age` from 80 and returns the difference. You can create objects that contain any sort of data or function, even other objects.
 
-You may wonder what the value of the variable `jeffObj` is. To find out, paste the object constructor code above into a Repl.it JavaScript editor and add the line
+You may wonder what the value of the variable `jeffObj` is. To find out, paste the object constructor code above into a Replit.com JavaScript editor and add the line
 
 `console.log(jeffObj);`
 
@@ -1583,7 +1589,7 @@ Bottom line: when you are writing HTML, you are generally dealing with tags/elem
 
 There is one final model that you should be aware of: the *parent-child-sibling* model. In this model (but still referring to the tree diagram) we can say that HTML is the parent, head and body would be its children, and head and body would be siblings of each other. In turn, we could say that body is parent to both paragraphs and the button, etc. An important concept within this metaphor is **inheritance**. Children inherit attributes from their parents in HTML just like in biology. You need to be aware of these various metaphors because as you do your own research, you are likely to encounter some or all of these metaphors.
 
-So if all these tags are also turned into JavaScript objects by the browsers, then what sort of properties and methods are available to us using JavaScript? The example below will get you started. Go to Repl.it program **P4.3C** and run the code a couple of times, refreshing the page in between.
+So if all these tags are also turned into JavaScript objects by the browsers, then what sort of properties and methods are available to us using JavaScript? The example below will get you started. Go to Replit.com program **P4.3C** and run the code a couple of times, refreshing the page in between.
 
 ```html
 <script>
@@ -1669,17 +1675,17 @@ As your programs get longer and more complex, there is an increased likelihood o
 
 <img src="https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/firstbug.jpg" width="100%" alt="First computer bug" hover="First computer bug">
 
-The most important way to keep your programs error free is to be consistent in your style of writing. If you add spaces around + signs, always do it that way. ALWAYS end JavaScript statements with a semicolon. If you use a tab for indenting, always do it that way. A great tool for keeping your formatting consistent in Repl.it is  is to right-click on your code and choose **Format Document**, or use the keyboard shortcut **shift-option-f (⇧⌥f)**, or use the **F1** key to bring up the **Command Palette → Format Document**.
+The most important way to keep your programs error free is to be consistent in your style of writing. If you add spaces around + signs, always do it that way. ALWAYS end JavaScript statements with a semicolon. If you use a tab for indenting, always do it that way. A great tool for keeping your formatting consistent in Replit.com is  is to right-click on your code and choose **Format Document**, or use the keyboard shortcut **shift-option-f (⇧⌥f)**, or use the **F1** key to bring up the **Command Palette → Format Document**.
 
 Another preventative measure is to be careful with your variable names. Make sure they are descriptive, not ambiguous and to use CamelCase.
 
-Another useful strategy is to take advantage of the autocomplete features that Repl.it provides.  Go to the **Settings** menu (gear on the left) **→ Code intelligence → Enabled**.
+Another useful strategy is to take advantage of the autocomplete features that Replit.com provides.  Go to the **Settings** menu (gear on the left) **→ Code intelligence → Enabled**.
 
 ### *• Active Strategies*
 
 Using the previous measures will go a long way toward clean, error free code, but sometimes you need strategies for find more subtle errors. First, sprinkle plenty of `console.log()` statements throughout your program. The most common errors after the syntax errors are errors with variables, that is, not knowing what values the variables are actually taking as the program runs. For instance, if you had a variable called age, you would include`console.log("age:" + age);` at key points in your code. This way you will be able verify that the value of age is actually changing the way you think it is. Without `console.log()` statements, you THINK you know what the variables are doing, but you will often be wrong.
 
-Another useful strategy is to comment out a section of code.  If there is a section of code that isn't working, you can comment it out and then put lines back in one by one by simply uncommenting them rather than retyping them.  Repl.it will comment lines for you if you select the lines and then click **⌘K** then **⌘C**.  If you want to uncomment groups of lines you can select them and click **⌘K** then **⌘U**.  You can also do this using the **Command Palette** via right-click or **F1** key.
+Another useful strategy is to comment out a section of code.  If there is a section of code that isn't working, you can comment it out and then put lines back in one by one by simply uncommenting them rather than retyping them.  Replit.com will comment lines for you if you select the lines and then click **⌘K** then **⌘C**.  If you want to uncomment groups of lines you can select them and click **⌘K** then **⌘U**.  You can also do this using the **Command Palette** via right-click or **F1** key.
 
 ### *• Chrome Console*
 
@@ -1717,13 +1723,13 @@ Look at the JavaScript and see if you can follow how it works. We have a couple 
 
 <img src="https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/chromeconsole.png" width="100%" alt="Chrome console" hover="Chrome console">
 
-Run the page in Repl.it, then click the **open-in-a-new-tab** button ![Open in new tab](https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/opennewtabbutton.png). In Chrome, go to the ![Chrome menu button](https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/Chomemenu.png "Chrome menu button") **Menu Button → More Tools → Developer Tools** and then select **Sources** not Console (see red arrow above). You should be able to arrange the panels that you get something like the example above by clicking the menu button ![Open in new tab](https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/opennewtabbutton.png) for the Developer Tools and choosing the over-under window arrangement icon. The blue arrow in the figure points to the panel control which you can use to open and close the various panels.
+Run the page in Replit.com, then click the **open-in-a-new-tab** button ![Open in new tab](https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/opennewtabbutton.png). In Chrome, go to the ![Chrome menu button](https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/Chomemenu.png "Chrome menu button") **Menu Button → More Tools → Developer Tools** and then select **Sources** not Console (see red arrow above). You should be able to arrange the panels that you get something like the example above by clicking the menu button ![Open in new tab](https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/opennewtabbutton.png) for the Developer Tools and choosing the over-under window arrangement icon. The blue arrow in the figure points to the panel control which you can use to open and close the various panels.
 
 To make use of this tool we need to set which variables to watch and decide where the program should pause so we can put a *breakpoint* there. In this example we will watch `x`, `y` and `hpxpos`. To set a watch on the variables, drag over the first instance of the variable (use the `y`) and you should see that all the other instances are highlighted. Right-click or Ctrl-click on the selected variable and choose **Add to Watch** from the menu. You should find the variable listed in the right panel **Watch** section as indicated by the red arrows below.
 
 <img src="https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/chromeconsolewatching.png" width="100%" alt="Chrome console watching" hover="Chrome console watching">
 
-Next click in the line number column to the left of `lpxpos = x + "px";`. It is line 24 in the example above, but may be a different number in your Repl.it example. This sets a breakpoint toward the end of the `buttonMove()` function. If you want to remove a breakpoint you can just click a second time. If you want additional breakpoints, click on those line numbers. For any breakpoints you set, you should see the corresponding line displayed in the right side **Breakpoints** section as indicated by the blue arrows above.
+Next click in the line number column to the left of `lpxpos = x + "px";`. It is line 24 in the example above, but may be a different number in your Replit.com example. This sets a breakpoint toward the end of the `buttonMove()` function. If you want to remove a breakpoint you can just click a second time. If you want additional breakpoints, click on those line numbers. For any breakpoints you set, you should see the corresponding line displayed in the right side **Breakpoints** section as indicated by the blue arrows above.
 
 Now set watches on `x` and `hpxpos`. Then click the "Click" button on your webpage to get things rolling. Each time `buttonmove()` is called by `looper()`, the script stops at the breakpoint and shows you the current value of `x`, `y` and `hpxpos`. To continue the execution, click on the blue arrow just above the variable **Watch** section. It is easy to see that the values of `y` are not the same as `x` and that would help us find our decimal point error. There are many other features of the Chrome debugger that can be helpful and that you can explore, but being able to set breakpoints and watch variables will be the most useful to you. A good source of additional information is a series of posts by Joshua Davies that begin [here](http://commandlinefanatic.com/cgi-bin/showarticle.cgi?article=art033).
 
@@ -1849,7 +1855,7 @@ function Wiggler(initx, inity, wsize, wspeed) {
 
 The function beginning on line 3 is a constructor function for making an object called a Wiggler. It is good style to start the name of the constructor function with a capital letter since it is not a normal function.  There are 4 parameters passed into the function: `initx` and `inity` for the (x, y) coordinates of the starting point, `wsize` for the size of the wiggler and `wspeed` for the speed that the wiggler falls.  Immediately we assign those parameter values to object properties that you can identify by the dot notation.  When the keyword `this` is used, it automatically refers to the current object.
 
-When line 1 is executed, a new Wiggler is constructed and assigned the variable name `flake`.  After that we can do things like `console.log(flake.speed)` and `flake.size = 15;`.  At this point though, there isn't anything to display, nor does a Wiggler fall down the canvas or wiggle.  Here's a more complete program.  Run the program a few times in a Repl.it and then keep reading.  Don't forget to add `<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>` to the index.html page.
+When line 1 is executed, a new Wiggler is constructed and assigned the variable name `flake`.  After that we can do things like `console.log(flake.speed)` and `flake.size = 15;`.  At this point though, there isn't anything to display, nor does a Wiggler fall down the canvas or wiggle.  Here's a more complete program.  Run the program a few times in a Replit.com and then keep reading.  Don't forget to add `<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>` to the index.html page.
 
 ```javascript
 let flake;
@@ -1895,7 +1901,7 @@ The `display()` function simply draws an ellipse according to the specification 
 
 Finally the `draw()` function repeatedly calls `flake.move()` and `flake.display()` so that the flake falls down the canvas while wiggling.
 
-That's all well and good, but we really could have done all of that more easily without bothering with making an object and a constructor function.  The beauty of the construction function though is that it can be used over and over again.  What if we want to make a blizzard of wiggling flakes on the screen? Paste the following into a Repl.it and run it.
+That's all well and good, but we really could have done all of that more easily without bothering with making an object and a constructor function.  The beauty of the construction function though is that it can be used over and over again.  What if we want to make a blizzard of wiggling flakes on the screen? Paste the following into a Replit.com and run it.
 
 ```javascript
 let flake = [];
@@ -3242,7 +3248,7 @@ Open Method Draw by going to <http://editor.method.ac/>
 
 On the right hand column you can edit the width and height of your canvas. Measurements as you notice are measured in Pixels NOT inches, feet, yards etc. To draw simply use any of the tools you see on the left side (Lines, rectangles, text, shapes, eclipses and circles). To draw shapes or text with colors you can use the color pick tool on the bottom toolbar! Now for the part where you actually get to inserting into your HTML document.
 
-Open up a Repl.it, and open your HTML document that you want your SVG drawing in. Go back to your browser that has your drawing open and click on **View → Source**. From this all you need to do is copy your source code that Method Draw spits out and throw it into your body on your HTML document. For now copy the following code into a blank HTML document.
+Open up a Replit.com, and open your HTML document that you want your SVG drawing in. Go back to your browser that has your drawing open and click on **View → Source**. From this all you need to do is copy your source code that Method Draw spits out and throw it into your body on your HTML document. For now copy the following code into a blank HTML document.
 
 ```html
 <svg width="580" height="400" xmlns="http://www.w3.org/2000/svg">
@@ -3374,9 +3380,9 @@ In addition to the info at Espruino.com, [this website is](http://www.whatimade.
 
 
 
-### *• Phaser on Repl.it*
+### *• Phaser on Replit.com*
 
-Phaser is a framework for making games that run in a browser.  It integrates nicely with Repl.it and a couple of nice tutorials are available.  The first tutorial is the one on the Phaser.io website, but a Repl.it user, Piotr Muskalski, has nicely set everything up for you [here](https://repl.it/@pmuskals/Phaser-Tutorial-Example).  If you open up his Repl.it and then follow along with the step by step explanations at http://phaser.io/tutorials/making-your-first-phaser-3-game, you should have your first running, jumping platform game up and running in under an hour.  Another more sophisticated Phaser tutorial you may wish to try second is at https://repl.it/talk/learn/Making-a-Phaser-Game-with-HTML5-and-JavaScript/7593.  The author, Kaldis Berzins, again provides step by step instructions.  It is a different sort of game than the other tutorial so you can learn new things. You'll still have a lot of questions, especially regarding how to make your own animated sprites and other graphics.  There are many sprite sheets available free online and a lot of information and free software that can help you create your own.
+Phaser is a framework for making games that run in a browser.  It integrates nicely with Replit.com and a couple of nice tutorials are available.  The first tutorial is the one on the Phaser.io website, but a Replit.com user, Piotr Muskalski, has nicely set everything up for you [here](https://Replit.com/@pmuskals/Phaser-Tutorial-Example).  If you open up his Replit.com and then follow along with the step by step explanations at http://phaser.io/tutorials/making-your-first-phaser-3-game, you should have your first running, jumping platform game up and running in under an hour.  Another more sophisticated Phaser tutorial you may wish to try second is at https://Replit.com/talk/learn/Making-a-Phaser-Game-with-HTML5-and-JavaScript/7593.  The author, Kaldis Berzins, again provides step by step instructions.  It is a different sort of game than the other tutorial so you can learn new things. You'll still have a lot of questions, especially regarding how to make your own animated sprites and other graphics.  There are many sprite sheets available free online and a lot of information and free software that can help you create your own.
 
 
 
