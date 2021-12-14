@@ -30,9 +30,9 @@ Table of Contents
 ---
 - [3.1 Controlling Microcontrollers](/Text.md#3)
 - [3.2 Programmable Circuits](/Text.md#3.2)
-- [3.3 Sensors & Time](/Text.md#3.2)
-- [3.4 Arrays & Data Logging](/Text.md#3.2)
-- [3.4 Motors & Robots](/Text.md#3.2)
+- [3.3 Sensors & Time](/Text.md#3.3)
+- [3.4 Arrays & Data Logging](/Text.md#3.4)
+- [3.4 Motors & Robots](/Text.md#3.5)
 
 4 JavaScript & Browsers
 ---
