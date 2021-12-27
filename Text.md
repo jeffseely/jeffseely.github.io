@@ -138,13 +138,13 @@ Take a look at [Crash Course Computer Science episode 4](https://www.youtube.com
 <!----><a name="1.2"></a>
 ## 1.2 Writing a Computer Program
 
-> **TARGET**: Be able to use the Espruino WebIDE to write and run simple JavaScript programs.
+> **TARGET**: Be able to use the Espruino WebIDE to write and run a program
 
 Follow your teacher's instructions to install the Espruino WebIDE and connect your Espruino Pico.  The Espruino WebIDE is a software environment that allows you write programs in JavaScript.  It then turns your program into something a computer can understand, sends to the code to the Pico and gives the results back to you. The REPL in the name Replit.com stands for Read Evaluate Print Loop. REPL's are simple programming tools that programmers use, and while Replit.com started out as being fairly simple, it has developed into an integrated development environment (IDE).  It is quite possible to write programs with just a text editor, but REPL's and IDE's are very useful.
 
 The WIDE will give you 3 windows.  On the right you will find the assignment instructions from your teacher. The top left window is the *editor* where you write your program, and the bottom left window is called the *console* and it is where you can get information back from your program run.
 
-<img src="https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/replit_helloworld.jpg" width="100%" alt="Replit.com window">
+<img src="https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/EspWebIDE.png" width="100%" alt="Replit.com window">
 
 The 3 line hamburger menu in the upper left corner gives you choices mostly about how your screen looks. The green submit button at the upper right is what you press when your program is working properly and you are ready to turn it in.
 
@@ -183,9 +183,9 @@ Only line 2 of the program will show up in the console, but not the comment at t
 
 Follow your teacher's instructions to log in to Replit.com.  The REPL in the name Replit.com stands for Read Evaluate Print Loop. REPL's are simple programming tools that programmers use, and while Replit.com started out as being fairly simple, it has developed into an integrated development environment (IDE).  It is quite possible to write programs with just a text editor, but REPL's and IDE's are very useful.
 
-Replit.com has an IDE similar to the Espruino WebIDE.  Complete 
+Replit.com has an IDE similar to the Espruino WebIDE: files on the far left, code in the middle, console on the right. Complete project 1 according to your teacher's instructions.
 
-
+<img src="https://28f7110b-3ce8-49d6-b340-8c67add3b3e0.id.repl.co/CSAssets/ReplitHello1.png" width="100%" alt="Replit.com window">
 
 To this point we've been poking around at a computer as though it is some sort of calculator with a full [QWERTY](http://gizmodo.com/why-we-still-use-qwerty-keyboards-even-though-theyre-a-1643855077) keyboard and a big screen. Not too useful. In order to write useful programs, we need **variables**. Variables in computer programs are pretty much like variables in algebra. They "contain" values and those values can change. It is perhaps a better metaphor in computer science to say that the variable *points to* a value rather than to say it *contains* a value, but for an introductory programming course, "contains" works just fine and it keeps it consistent with your math class concept of variables.
 
